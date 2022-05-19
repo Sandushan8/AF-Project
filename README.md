@@ -1,1 +1,1 @@
-# AF-Project
+Download the project and run npm install
