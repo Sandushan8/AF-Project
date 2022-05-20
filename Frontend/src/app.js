@@ -1,13 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import { Main } from './Pages/Admin/Main'
 
 const App = () =>{
     return(
-        <div>
-            <h1>
-                Test
-            </h1>
-        </div>
+        <BrowserRouter>
+            <Switch>
+                <Route exact path='/' component={Main}/>
+            </Switch>
+        </BrowserRouter>
     )
 }
 
