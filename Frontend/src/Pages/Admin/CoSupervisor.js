@@ -1,8 +1,11 @@
 import React from 'react'
+import { NavBarUsers } from '../../Components/Admin/NavBarUsers'
 import '../../css/Admin/userdiv.css'
 
 export const CoSupervisor = () =>{
     return(
+      <div>
+      <NavBarUsers/>
         <div className='members'>
             <h1>Co-Supervisor</h1>
             <table>
@@ -34,6 +37,7 @@ export const CoSupervisor = () =>{
             
           </tbody> */}
         </table>
+        </div>
         </div>
     )
 }
