@@ -8,7 +8,7 @@ export const NavBarSG = () => {
             <label className='alogo'>STUDENT GROUPS</label>
             <ul className='a_navul'>
             <Link to='/AdminHome'><li className='a_navli'>Home</li></Link>
-            <Link to='/'><li className='a_navli'>Assign panel members</li></Link>
+            <Link to='/AssignP'><li className='a_navli'>Assign panel members</li></Link>
             </ul>
         </nav>
     </div>
