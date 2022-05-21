@@ -79,7 +79,7 @@ const App = () => {
                 <Route path="/topicRegister" exact component={TopicRegister} />
                 <Route path="/myRequest" exact component={MyRequest} />
 
-                {/* Student routes end */}
+                {/* Student routes end- */}
 
 
             </Switch>
