@@ -1,12 +1,33 @@
-const express = require('express')
-
-
+const express = require("express");
+const mogoose = require("mongoose");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const dotenv = require("dotenv");
+require("dotenv").config();
 const app = express();
 
-app.use((req,res)=>{
-    res.send('Hiii')
+//port Number Assign
+const port = process.env.port || 8000;
+
+app.use(cors());
+app.use(bodyParser.json());
+
+//Database Connection URL
+const URL = process.env.DB_URL;
+
+mogoose.connect(URL,{
+    useUnifiedTopology:true,
+});
+
+//Check the database connection
+const connection = mogoose.connection;
+connection.once("open",()=>{
+    console.log("This database is Connection success!");
 })
 
-app.listen(3001,()=>{
-    console.log('Server on port 3000')
+ app.use("/details",require("./Routes/Student/apiRoutes"));
+ 
+//Display the working port
+app.listen(port,()=>{
+    console.log(`This Server is running in this ${port} port`)
 })
