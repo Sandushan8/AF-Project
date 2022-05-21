@@ -1,8 +1,11 @@
 import React from 'react'
+import { NavBarUsers } from '../../Components/Admin/NavBarUsers'
 import '../../css/Admin/userdiv.css'
 
 export const PanelMember = () =>{
     return(
+      <div>
+      <NavBarUsers/>
         <div className='members'>
             <h1>Panel Member</h1>
             <table className='table'>
@@ -34,6 +37,7 @@ export const PanelMember = () =>{
             
           </tbody> */}
         </table>
+        </div>
         </div>
     )
 }
