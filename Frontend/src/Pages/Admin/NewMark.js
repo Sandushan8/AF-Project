@@ -1,42 +1,52 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavBarUploads } from '../../Components/Admin/NavBarUploads'
-
+import axios from 'axios'
 export const NewMark = () => {
+  const [Title,setTitle] = useState('')
+  const [Type,setType] = useState('')
+  const [Details,setDetails] = useState('')
+  const [MarksA,setMarksA] = useState('')
+  const [SpecialI,setSpecialI] = useState('')
+  
+  const submitM = () =>{
+    axios.post('http://localhost:8000/markingscheme', 
+    {Title:Title, 
+    Type:Type,
+    Details:Details,
+    MarksA:MarksA,
+    SpecialI:SpecialI
+  })
+    
+  }
   return (
     <div>
       <NavBarUploads/>
-        
         <div>
-        <h1>Marking schemes</h1>
-        <table>
-          <tr>
-            <th>ID</th>
-            <th>Type</th>
-            <th>Email</th>
-            <th>Special Details</th>
-            <th>Pre-Payment</th>
-            <th>Price</th>
-            <th>Update</th>
-            <th>Delete</th>
-          </tr>
-          {/* <tbody class='tbody'>
-            {apiData.map((data)=>{
-              return(
-                <tr>
-                  <td>{data.ID}</td>
-                  <td>{data.Type}</td>
-                  <td>{data.Email}</td>
-                  <td>{data.SDetes}</td>
-                  <td>{data.PP}</td>
-                  <td>{data.Price}</td>
-                  <td><Link to='/update'><button class='update' onClick={()=>setID(data.ID)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passdelete(data.ID)}>Delete</button></td>
-                </tr>
-              )
-            })}
-            
-          </tbody> */}
-        </table>
+        <h1>New Marking Scheme</h1>
+        <label>Title</label><br/>
+        <input type='text' onChange={(e)=>{
+          setTitle(e.target.value)
+        }}/><br/><br/>
+        <label>Type</label><br/>
+        <input type='text' onChange={(e)=>{
+          setType(e.target.value)
+        }}/><br/><br/>
+        <label>Details</label><br/>
+        <input type='text' onChange={(e)=>{
+          setDetails(e.target.value)
+        }}/><br/><br/>
+        <label>Marks allocation</label><br/>
+        <input type='text' onChange={(e)=>{
+          setMarksA(e.target.value)
+        }}/><br/><br/>
+        <label>Special Instructions</label><br/>
+        <input type='text' onChange={(e)=>{
+          setSpecialI(e.target.value)
+        }}/><br/><br/>
+        <div className='formbuttons'>
+          <input type='submit' value=' Add ' className='formsubmit' onClick={submitM}/>
+          <input type='submit' value=' Cancel ' className='formcancel'/>
+        </div>
         </div>
     </div>
   )

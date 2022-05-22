@@ -33,8 +33,15 @@ connection.once("open",()=>{
 //Thivanka Routes
 app.use("/details",require("./Routes/Student/apiRoutes"));
 //Ihill Routes
-app.post('/submission',iroutes.create)
-app.get('/submission',iroutes.find)
+app.post('/submission',iroutes.creates)
+app.get('/submission',iroutes.finds)
+app.put('/submission',iroutes.updates)
+app.delete('/submission/:id',iroutes.deletes)
+//-----------------
+app.post('/markingscheme',iroutes.createm)
+app.get('/markingscheme',iroutes.findm)
+app.put('/markingscheme/:id',iroutes.updatem)
+app.delete('/markingscheme/:id',iroutes.deletem)
 
 //Display the working port
 app.listen(port,()=>{
