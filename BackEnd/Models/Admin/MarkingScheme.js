@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 var schema = new mongoose.Schema({
-    ID:{
+    Title:{
         type:String   
     },
     Type:{
@@ -10,13 +10,13 @@ var schema = new mongoose.Schema({
     Details:{
         type:String
     },
-    Deadline:{
+    MarksA:{
         type:String
     },
-    Marks:{
+    SpecialI:{
         type:String
     }
 })
 
-const marking = mongoose.model('submission',schema)
+const marking = mongoose.model('markingscheme',schema)
 module.exports=marking
