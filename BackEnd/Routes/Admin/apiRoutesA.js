@@ -35,3 +35,27 @@ exports.find = async (req,res)=>{
         })
     })
  }
+
+ exports.update = async (req,res)=>{
+    if(!req.body){
+        return res.send({message:'Empty'})
+    }
+
+    const id = req.body.ID
+    submission.updateOne({ID:id}, req.body)
+    .then(data=>{
+            res.send(data)   
+    })
+}
+
+exports.delete = async (req,res)=>{
+    if(!req.body){
+        return res.send({message:'Empty'})
+    }
+    const id = req.params.id
+    
+    submission.deleteOne({ID:id})
+    .then(
+            res.send('Successfully deleted') 
+    )
+}
