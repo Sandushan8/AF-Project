@@ -7,7 +7,7 @@ export const PanelMember = () =>{
       <div>
       <NavBarUSubtopic/>
         <div className='members'>
-            <h1>Panel Member</h1>
+        <label className='ttitle'>Panel Member</label>
             <table className='table'>
           <tr class='headt'>
             <th>ID</th>

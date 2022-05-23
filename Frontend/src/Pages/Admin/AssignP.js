@@ -5,7 +5,7 @@ export const AssignP = () => {
   return (
     <div>
       <NavBarSGSub/>
-        <h1>Assign panel members</h1>
+      <label className='ttitle'>Assign panel members</label>
     </div>
   )
 }

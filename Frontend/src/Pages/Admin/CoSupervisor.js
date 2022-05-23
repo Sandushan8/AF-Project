@@ -7,7 +7,7 @@ export const CoSupervisor = () =>{
       <div>
       <NavBarUSubtopic/>
         <div className='members'>
-            <h1>Co-Supervisor</h1>
+        <label className='ttitle'>Co-Supervisor</label>
             <table>
           <tr>
             <th>ID</th>

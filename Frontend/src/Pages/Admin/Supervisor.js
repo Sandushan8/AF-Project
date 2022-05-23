@@ -7,7 +7,7 @@ export const Supervisor = () =>{
       <div>
         <NavBarUSubtopic/>
         <div className='members'>
-            <h1>Supervisor</h1>
+        <label className='ttitle'>Supervisor</label>
             <table>
           <tr>
             <th>ID</th>
