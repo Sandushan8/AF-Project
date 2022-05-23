@@ -1,11 +1,11 @@
 import React from 'react'
 import '../../css/Admin/userdiv.css'
-import { NavBarUsers } from '../../Components/Admin/NavBarUsers'
+import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
 
 export const Supervisor = () =>{
     return(
       <div>
-        <NavBarUsers/>
+        <NavBarUSubtopic/>
         <div className='members'>
             <h1>Supervisor</h1>
             <table>

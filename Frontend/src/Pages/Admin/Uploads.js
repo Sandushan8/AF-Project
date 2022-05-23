@@ -2,6 +2,7 @@ import React, {useEffect,useState} from 'react'
 import { NavBarUploads } from '../../Components/Admin/NavBarUploads'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import '../../css/Admin/tables'
 
 export const Uploads = () => {
   const [subData,setData] =useState([])
@@ -11,13 +12,13 @@ export const Uploads = () => {
     axios.get('http://localhost:8000/submission').then((getData)=>{
       setData(getData.data)
     })
-  },[])
+  })
 
   useEffect(()=>{
     axios.get('http://localhost:8000/markingscheme').then((getData)=>{
       setMData(getData.data)
     })
-  },[])
+  })
 
 
   const passSubdelete = ((ID)=>{
@@ -34,14 +35,15 @@ export const Uploads = () => {
   }
 
   const setMID =(MID)=>{
-    localStorage.setItem('MID',MID)
     console.log(MID)
   }
 
   return (
     <div>
       <NavBarUploads/>
-        <h1>Submissions</h1><br/>
+      <div className='bodyAd'>
+      <br/>
+        <label className='ttitle'>Submissions</label><br/>
         <table className='table'>
           <tr class='headt'>
             <th>ID</th>
@@ -49,8 +51,8 @@ export const Uploads = () => {
             <th>Details</th>
             <th>Deadline</th>
             <th>Marks</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
           </tr>
           <tbody class='tbody'>
             {subData.map((data)=>{
@@ -61,8 +63,8 @@ export const Uploads = () => {
                   <td>{data.Details}</td>
                   <td>{data.Deadline}</td>
                   <td>{data.Marks}</td>
-                  <td><Link to='/'><button class='update' onClick={()=>setID(data._id)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passSubdelete(data._id)}>Delete</button></td>
+                  <td><Link to='/'><button className='update' onClick={()=>setID(data._id)}>Update</button></Link></td>
+                  <td><button className='delete' onClick={()=>passSubdelete(data._id)}>Delete</button></td>
                 </tr>
               )
             })}
@@ -70,7 +72,7 @@ export const Uploads = () => {
           </tbody>
         </table>
         <br/><br/>
-        <h2>Marking schemes</h2><br/>
+        <label className='ttitle'>Marking schemes</label><br/>
         <table className='table'>
           <tr class='headt'>
             <th>Title</th>
@@ -78,8 +80,8 @@ export const Uploads = () => {
             <th>Details</th>
             <th>Marks Allocation</th>
             <th>Special instructions</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
           </tr>
           <tbody class='tbody'>
             {marksData.map((data)=>{
@@ -90,15 +92,14 @@ export const Uploads = () => {
                   <td>{data.Details}</td>
                   <td>{data.MarksA}</td>
                   <td>{data.SpecialI}</td>
-                  <td><Link to='/'><button class='update' onClick={()=>setMID(data._id)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passMarksdelete(data._id)}>Delete</button></td>
+                  <td><Link to='/'><button className='update' onClick={()=>setMID(data._id)}>Update</button></Link></td>
+                  <td><button className='delete' onClick={()=>passMarksdelete(data._id)}>Delete</button></td>
                 </tr>
               )
-            })}
-            
+            })} 
           </tbody>
         </table>
-        
+        </div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 const submission = require('../../Models/Admin/SubmissionT')
 const markingscheme = require('../../Models/Admin/MarkingScheme')
-
+const multr = require("multer");
+const fileup = require('../../Models/Admin/FileUpload')
 
 //submission
 exports.creates = async (req,res) =>{
@@ -50,13 +51,14 @@ exports.deletes = async (req,res)=>{
     if(!req.body){
         return res.send({message:'Empty'})
     }
+    
     const id = req.params.id
     submission.findByIdAndDelete(id)
     .then(
             res.send('Successfully deleted') 
     )
 }
-//------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
 
 //Marking schemes
 exports.createm = async (req,res) =>{
@@ -112,4 +114,37 @@ exports.deletem = async (req,res)=>{
             res.send('Successfully deleted') 
     )
 }
-//------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------
+
+//storage
+//fileup
+
+const strg = multr.diskStorage({
+    destination:'./uploads',
+    filename:(req,file,callback) =>{
+        callback(null,file.originalname)
+    },
+})
+
+const upload = multr({
+    storage:strg
+}).single('File')
+
+exports.uploadfile = async (req,res)=>{
+    upload(req,res,(err)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            const newFile = new fileup({
+                Name: req.body.Name,
+                File:{
+                    data:req.file.filename,
+                    contentType: 'txt'
+                }
+            })
+            newFile.save()
+            .then(()=>res.send('Success upload')).catch(err=>{console.log(err)})
+        }
+    })
+}
