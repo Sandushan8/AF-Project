@@ -36,7 +36,7 @@ app.use("/details",require("./Routes/Student/apiRoutes"));
 //Ihill Routes
 app.post('/submission',iroutes.creates)
 app.get('/submission',iroutes.finds)
-app.put('/submission',iroutes.updates)
+app.put('/submission/:id',iroutes.updates)
 app.delete('/submission/:id',iroutes.deletes)
 //-----------------
 app.post('/markingscheme',iroutes.createm)

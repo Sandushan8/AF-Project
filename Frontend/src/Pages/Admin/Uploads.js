@@ -30,12 +30,23 @@ export const Uploads = () => {
     console.log(ID)
   })
 
-  const setID =(SID)=>{
-    localStorage.setItem('SID',SID)
+  const setSID =(data)=>{
+    localStorage.setItem('id',data._id)
+    localStorage.setItem('SID',data.ID)
+    localStorage.setItem('STypes',data.Type)
+    localStorage.setItem('SDetails',data.Details)
+    localStorage.setItem('SDeadline',data.Deadline)
+    localStorage.setItem('SMarks',data.Marks)
   }
 
-  const setMID =(MID)=>{
-    console.log(MID)
+  const setMID =(data)=>{
+    localStorage.setItem('mid',data._id)
+    localStorage.setItem('MTitle',data.Title)
+    localStorage.setItem('MTypes',data.Type)
+    localStorage.setItem('MDetails',data.Details)
+    localStorage.setItem('MMarks',data.MarksA)
+    localStorage.setItem('MSpecial',data.SpecialI)
+    console.log(data)
   }
 
   return (
@@ -63,7 +74,7 @@ export const Uploads = () => {
                   <td>{data.Details}</td>
                   <td>{data.Deadline}</td>
                   <td>{data.Marks}</td>
-                  <td><Link to='/'><button className='update' onClick={()=>setID(data._id)}>Update</button></Link></td>
+                  <td><Link to='/UpdateSub'><button className='update' onClick={()=>setSID(data)}>Update</button></Link></td>
                   <td><button className='delete' onClick={()=>passSubdelete(data._id)}>Delete</button></td>
                 </tr>
               )
@@ -92,7 +103,7 @@ export const Uploads = () => {
                   <td>{data.Details}</td>
                   <td>{data.MarksA}</td>
                   <td>{data.SpecialI}</td>
-                  <td><Link to='/'><button className='update' onClick={()=>setMID(data._id)}>Update</button></Link></td>
+                  <td><Link to='/UpdateMark'><button className='update' onClick={()=>setMID(data)}>Update</button></Link></td>
                   <td><button className='delete' onClick={()=>passMarksdelete(data._id)}>Delete</button></td>
                 </tr>
               )

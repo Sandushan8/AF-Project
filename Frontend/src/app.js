@@ -17,8 +17,8 @@ import { Supervisor } from './Pages/Admin/Supervisor'
 import { UpDoc } from './Pages/Admin/UpDoc'
 import { Uploads } from './Pages/Admin/Uploads'
 import { Users } from './Pages/Admin/Users'
-
-
+import { UpdateSub } from './Pages/Admin/UpdateSub'
+import { UpdateMark } from './Pages/Admin/UpdateMark'
 //student routes
 
 import LoginPage from './Pages/Student/loginPage';
@@ -53,7 +53,9 @@ const App = () => {
                 <Route exact path='/AssignP' component={AssignP}/>
                 <Route exact path='/NewSub' component={NewSub}/>  
                 <Route exact path='/NewMark' component={NewMark}/>  
-                <Route exact path='/UpDoc' component={UpDoc}/>     
+                <Route exact path='/UpDoc' component={UpDoc}/>
+                <Route exact path='/UpdateSub' component={UpdateSub}/>      
+                <Route exact path='/UpdateMark' component={UpdateMark}/> 
 
                 {/* Admin routes */}
                 <Route exact path='/AdminHome' component={Main} />

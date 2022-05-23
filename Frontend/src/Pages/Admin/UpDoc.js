@@ -5,13 +5,22 @@ export const UpDoc = () => {
   return (
     <div>
       <NavBarUploadsSub/>
-      <div>
-        <label className='ttitle'> Upload documents</label>
+      
+      <div className='formbody'>
+      <label className='ttitle'>Upload_documents</label>
+      <div className='Form'> 
         <br/>
         <h2>Enter a File Name:</h2>
-        <form>
-          <input type='file'/>
-        </form>
+        <input type='text'/>
+        <br/><br/>
+        <input type='file'/>
+        <br/>
+        <br/>
+        <input type='submit' value=' Add ' className='formsubmit'/>
+        <input type='submit' value=' Cancel ' className='formcancel'/>
+        
+        
+      </div>
       </div>
       </div>
   )

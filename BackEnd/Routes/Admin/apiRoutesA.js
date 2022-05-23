@@ -39,9 +39,9 @@ exports.finds = async (req,res)=>{
     if(!req.body){
         return res.send({message:'Empty'})
     }
-
-    const id = req.body.ID
-    submission.updateOne({ID:id}, req.body)
+    
+    const id = req.params.id
+    submission.findByIdAndUpdate(id, req.body)
     .then(data=>{
             res.send(data)   
     })
@@ -97,8 +97,9 @@ exports.findm = async (req,res)=>{
     if(!req.body){
         return res.send({message:'Empty'})
     }
+    console.log(req.body)
     const id = req.params.id
-    markingscheme.findByIdAndUpdate({ID:id}, req.body)
+    markingscheme.findByIdAndUpdate(id, req.body)
     .then(data=>{
             res.send(data)   
     })
