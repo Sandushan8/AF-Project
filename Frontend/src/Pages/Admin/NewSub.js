@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { NavBarUploads } from '../../Components/Admin/NavBarUploads'
 import axios from 'axios'
+import { NavBarUploadsSub } from '../../Components/Admin/NavBarUploadsSub'
+import { Link } from 'react-router-dom'
 
 export const NewSub = () => {
   const [ID,setID] = useState('')
@@ -21,9 +22,10 @@ export const NewSub = () => {
 
   return (
     <div>
-      <NavBarUploads/>
-        <div>
-        <h1>New Submission</h1>
+      <NavBarUploadsSub/>
+        <div className='formbody'>
+        <label className='ttitle'>New_Submission</label><br/>
+        <div className='Form'>
         <label>Submission ID</label><br/>
         <input type='text' onChange={(e)=>{
           setID(e.target.value)
@@ -46,7 +48,8 @@ export const NewSub = () => {
         }}/><br/><br/>
         <div className='formbuttons'>
           <input type='submit' value=' Add ' className='formsubmit' onClick={submitA}/>
-          <input type='submit' value=' Cancel ' className='formcancel'/>
+          <Link to ='/AdminUploads'><input type='submit' value=' Cancel ' className='formcancel'/></Link>
+        </div>
         </div>
         </div>
     </div>

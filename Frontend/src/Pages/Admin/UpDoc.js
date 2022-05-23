@@ -1,12 +1,12 @@
 import React from 'react'
-import { NavBarUploads } from '../../Components/Admin/NavBarUploads'
+import { NavBarUploadsSub } from '../../Components/Admin/NavBarUploadsSub'
 
 export const UpDoc = () => {
   return (
     <div>
-      <NavBarUploads/>
+      <NavBarUploadsSub/>
       <div>
-        <h1> Upload documents</h1>
+        <label className='ttitle'> Upload documents</label>
         <br/>
         <h2>Enter a File Name:</h2>
         <form>

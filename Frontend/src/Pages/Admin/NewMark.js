@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { NavBarUploads } from '../../Components/Admin/NavBarUploads'
 import axios from 'axios'
+import { NavBarUploadsSub } from '../../Components/Admin/NavBarUploadsSub'
+import '../../css/Admin/forms.css'
 export const NewMark = () => {
   const [Title,setTitle] = useState('')
   const [Type,setType] = useState('')
@@ -20,9 +21,10 @@ export const NewMark = () => {
   }
   return (
     <div>
-      <NavBarUploads/>
-        <div>
-        <h1>New Marking Scheme</h1>
+      <NavBarUploadsSub/>
+        <div className='formbody'>
+        <h1 className='ttitle'>New_Marking_Scheme</h1>
+        <div className='Form'>
         <label>Title</label><br/>
         <input type='text' onChange={(e)=>{
           setTitle(e.target.value)
@@ -46,6 +48,7 @@ export const NewMark = () => {
         <div className='formbuttons'>
           <input type='submit' value=' Add ' className='formsubmit' onClick={submitM}/>
           <input type='submit' value=' Cancel ' className='formcancel'/>
+        </div>
         </div>
         </div>
     </div>

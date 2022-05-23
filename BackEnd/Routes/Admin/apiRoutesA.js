@@ -51,6 +51,7 @@ exports.deletes = async (req,res)=>{
     if(!req.body){
         return res.send({message:'Empty'})
     }
+    
     const id = req.params.id
     submission.findByIdAndDelete(id)
     .then(
