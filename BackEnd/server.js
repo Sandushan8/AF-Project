@@ -44,7 +44,7 @@ app.get('/markingscheme',iroutes.findm)
 app.put('/markingscheme/:id',iroutes.updatem)
 app.delete('/markingscheme/:id',iroutes.deletem)
 //-------------------
-app.post('/upload',iroutes.uploadfile)
+app.post('/upload/:fname',iroutes.uploadfile)
 
 //Display the working port
 app.listen(port,()=>{

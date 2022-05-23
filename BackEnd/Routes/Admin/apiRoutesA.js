@@ -138,7 +138,7 @@ exports.uploadfile = async (req,res)=>{
         }
         else{
             const newFile = new fileup({
-                Name: req.body.Name,
+                Name: req.params.fname,
                 File:{
                     data:req.file.filename,
                     contentType: 'txt'
