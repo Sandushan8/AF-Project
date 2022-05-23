@@ -8,7 +8,7 @@ export const Student = () =>{
       <NavBarUSubtopic/>
         <div className='members'>
         <label className='ttitle'>Student</label>
-            <table>
+            <table className='table'>
           <tr>
             <th>ID</th>
             <th>Type</th>

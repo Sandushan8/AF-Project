@@ -7,7 +7,7 @@ export const Users = () => {
       <NavBarUsers/>
       <div className='usercontainer'>
       <label className='ttitle'>Summary</label>
-        <div className='summary'>
+      <div className='summary'>
         <ul className='halfU'>
         <h1>Students</h1>
         </ul>
@@ -15,8 +15,7 @@ export const Users = () => {
         <h1>Staff</h1>
         </ul>
       </div>
-        </div>
-      
+      </div>
       </div>
      
   )

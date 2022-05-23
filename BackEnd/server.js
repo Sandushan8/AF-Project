@@ -34,16 +34,19 @@ connection.once("open",()=>{
 app.use("/details",require("./Routes/Student/apiRoutes"));
 
 //Ihill Routes
+//submission type
 app.post('/submission',iroutes.creates)
 app.get('/submission',iroutes.finds)
 app.put('/submission/:id',iroutes.updates)
 app.delete('/submission/:id',iroutes.deletes)
 //-----------------
+//marking schemes
 app.post('/markingscheme',iroutes.createm)
 app.get('/markingscheme',iroutes.findm)
 app.put('/markingscheme/:id',iroutes.updatem)
 app.delete('/markingscheme/:id',iroutes.deletem)
 //-------------------
+//upload files
 app.post('/upload/:fname',iroutes.uploadfile)
 app.get('/upload',iroutes.findfile)
 app.delete('/upload/:id',iroutes.deletefile)

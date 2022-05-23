@@ -8,14 +8,15 @@ export const Supervisor = () =>{
         <NavBarUSubtopic/>
         <div className='members'>
         <label className='ttitle'>Supervisor</label>
-            <table>
+            <table className='table'>
           <tr>
             <th>ID</th>
-            <th>Type</th>
+            <th>Department</th>
+            <th>Specialization</th>
+            <th>Research Field</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Special Details</th>
-            <th>Pre-Payment</th>
-            <th>Price</th>
+            <th>Mobile Number</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
