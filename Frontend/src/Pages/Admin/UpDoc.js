@@ -31,8 +31,6 @@ export const UpDoc = () => {
         <br/>
         <Link to='/AdminUploads'><input type='submit' value=' Add ' className='formsubmit' onClick={senddoc}/></Link> 
         <Link to='/AdminUploads'><input type='submit' value=' Cancel ' className='formcancel'/></Link>
-        
-        
       </div>
       </div>
       </div>
