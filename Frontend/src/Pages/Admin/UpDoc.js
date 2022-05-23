@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { NavBarUploadsSub } from '../../Components/Admin/NavBarUploadsSub'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const UpDoc = () => {
   const [fname,setfilename] = useState('')
@@ -28,10 +29,8 @@ export const UpDoc = () => {
         <input type='file' onChange={(e)=>{setfile(e.target.files[0])}}/>
         <br/>
         <br/>
-        <input type='submit' value=' Add ' className='formsubmit' onClick={senddoc}/>
-        <input type='submit' value=' Cancel ' className='formcancel'/>
-        
-        
+        <Link to='/AdminUploads'><input type='submit' value=' Add ' className='formsubmit' onClick={senddoc}/></Link> 
+        <Link to='/AdminUploads'><input type='submit' value=' Cancel ' className='formcancel'/></Link>
       </div>
       </div>
       </div>

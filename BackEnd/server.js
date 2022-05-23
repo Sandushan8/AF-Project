@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 require("dotenv").config();
 
 //Ihill files
-const iroutes = require('./Routes/Admin/apiRoutesA')
+const iroutes = require('./Routes/Admin/Adminfunctions')
 
 const app = express();
 
