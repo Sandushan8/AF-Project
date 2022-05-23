@@ -45,7 +45,8 @@ app.put('/markingscheme/:id',iroutes.updatem)
 app.delete('/markingscheme/:id',iroutes.deletem)
 //-------------------
 app.post('/upload/:fname',iroutes.uploadfile)
-
+app.get('/upload',iroutes.findfile)
+app.delete('/upload/:id',iroutes.deletefile)
 //Display the working port
 app.listen(port,()=>{
     console.log(`This Server is running in this ${port} port`)

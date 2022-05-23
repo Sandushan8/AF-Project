@@ -149,3 +149,25 @@ exports.uploadfile = async (req,res)=>{
         }
     })
 }
+exports.findfile = async (req,res)=>{
+    fileup.find().then(sub=>{
+        res.send(sub)
+    })
+    .catch(err=>{
+        res.status(500).send({
+            message:err.message||"Error in Get"
+        })
+    })
+ }
+
+ exports.deletefile = async (req,res)=>{
+    if(!req.body){
+        return res.send({message:'Empty'})
+    }
+    const id = req.params.id
+    fileup.findByIdAndDelete(id)
+    .then(
+            res.send('Successfully deleted') 
+    )
+}
+
