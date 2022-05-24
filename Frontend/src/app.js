@@ -17,8 +17,8 @@ import { Supervisor } from './Pages/Admin/Supervisor'
 import { UpDoc } from './Pages/Admin/UpDoc'
 import { Uploads } from './Pages/Admin/Uploads'
 import { Users } from './Pages/Admin/Users'
-
-
+import { UpdateSub } from './Pages/Admin/UpdateSub'
+import { UpdateMark } from './Pages/Admin/UpdateMark'
 //student routes
 
 import LoginPage from './Pages/Student/loginPage';
@@ -42,10 +42,12 @@ const App = () => {
             <Switch>
 
                 //Admin routes
+                //main
                 <Route exact path='/AdminHome' component={Main}/>
                 <Route exact path='/AdminUser' component={Users}/>
                 <Route exact path='/AdminStudentg' component={Studentg}/>
                 <Route exact path='/AdminUploads' component={Uploads}/>
+                //sub
                 <Route exact path='/CoSupervisor' component={CoSupervisor}/>
                 <Route exact path='/Supervisor' component={Supervisor}/>
                 <Route exact path='/PanelMember' component={PanelMember}/>
@@ -53,7 +55,9 @@ const App = () => {
                 <Route exact path='/AssignP' component={AssignP}/>
                 <Route exact path='/NewSub' component={NewSub}/>  
                 <Route exact path='/NewMark' component={NewMark}/>  
-                <Route exact path='/UpDoc' component={UpDoc}/>     
+                <Route exact path='/UpDoc' component={UpDoc}/>
+                <Route exact path='/UpdateSub' component={UpdateSub}/>      
+                <Route exact path='/UpdateMark' component={UpdateMark}/> 
 
                 {/* Admin routes */}
                 <Route exact path='/AdminHome' component={Main} />

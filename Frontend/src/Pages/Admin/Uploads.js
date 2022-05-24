@@ -1,11 +1,148 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { NavBarUploads } from '../../Components/Admin/NavBarUploads'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
+import '../../css/Admin/tables'
 
 export const Uploads = () => {
+  const [subData,setData] =useState([])
+  const [marksData,setMData] = useState([])
+  const [upfiles,setupfiles] = useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/submission').then((getData)=>{
+      setData(getData.data)
+    })
+  })
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/markingscheme').then((getData)=>{
+      setMData(getData.data)
+    })
+  })
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/upload').then((getData)=>{
+      setupfiles(getData.data)
+    })
+  })
+
+
+  const passSubdelete = ((ID)=>{
+    axios.delete(`http://localhost:8000/submission/${ID}`)
+    
+  })
+  const passMarksdelete = ((MID)=>{
+    axios.delete(`http://localhost:8000/markingscheme/${MID}`)
+    
+  })
+  const passFiledelete = ((FID)=>{
+    axios.delete(`http://localhost:8000/upload/${FID}`)
+    
+  })
+
+  const setSID =(data)=>{
+    localStorage.setItem('id',data._id)
+    localStorage.setItem('SID',data.ID)
+    localStorage.setItem('STypes',data.Type)
+    localStorage.setItem('SDetails',data.Details)
+    localStorage.setItem('SDeadline',data.Deadline)
+    localStorage.setItem('SMarks',data.Marks)
+  }
+
+  const setMID =(data)=>{
+    localStorage.setItem('mid',data._id)
+    localStorage.setItem('MTitle',data.Title)
+    localStorage.setItem('MTypes',data.Type)
+    localStorage.setItem('MDetails',data.Details)
+    localStorage.setItem('MMarks',data.MarksA)
+    localStorage.setItem('MSpecial',data.SpecialI)
+    console.log(data)
+  }
+
   return (
     <div>
       <NavBarUploads/>
-        <h1>Uploads</h1>
+      <div className='bodyAd'>
+      <br/>
+        <label className='ttitle'>Submissions</label><br/>
+        <table className='table'>
+          <tr class='headt'>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Details</th>
+            <th>Deadline</th>
+            <th>Marks</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
+          </tr>
+          <tbody class='tbody'>
+            {subData.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.ID}</td>
+                  <td>{data.Type}</td>
+                  <td>{data.Details}</td>
+                  <td>{data.Deadline}</td>
+                  <td>{data.Marks}</td>
+                  <td><Link to='/UpdateSub'><button className='update' onClick={()=>setSID(data)}>Update</button></Link></td>
+                  <td><button className='delete' onClick={()=>passSubdelete(data._id)}>Delete</button></td>
+                </tr>
+              )
+            })}
+            
+          </tbody>
+        </table>
+        <br/><br/>
+        <label className='ttitle'>Marking schemes</label><br/>
+        <table className='table'>
+          <tr class='headt'>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Details</th>
+            <th>Marks Allocation</th>
+            <th>Special instructions</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
+          </tr>
+          <tbody class='tbody'>
+            {marksData.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.Title}</td>
+                  <td>{data.Type}</td>
+                  <td>{data.Details}</td>
+                  <td>{data.MarksA}</td>
+                  <td>{data.SpecialI}</td>
+                  <td><Link to='/UpdateMark'><button className='update' onClick={()=>setMID(data)}>Update</button></Link></td>
+                  <td><button className='delete' onClick={()=>passMarksdelete(data._id)}>Delete</button></td>
+                </tr>
+              )
+            })} 
+          </tbody>
+        </table><br/>
+        
+        {/* <label className='ttitle'>Uploaded Documents</label>
+        <div className='uploadstab'>
+            <table className='tableup'>
+              <tr className='headt'>
+                <th>Name</th>
+                <th>Delete</th>
+              </tr>
+              <tbody className='tbody'>
+              {upfiles.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.Name}</td>
+                  <td><button className='delete' onClick={()=>passFiledelete(data._id)}>Delete</button></td>
+                </tr>
+              )
+            })} 
+              </tbody>
+            </table>
+            </div> */}
+
+        </div>
     </div>
   )
 }
