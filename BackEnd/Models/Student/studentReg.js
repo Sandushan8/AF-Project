@@ -6,7 +6,11 @@ const userSchema = new Schema({
     GrpID:{
         type:String,
         require:true
-    },   
+    }, 
+    Img:{
+        type:String,
+        require:true
+    },  
     ID:{
         type:String,
         require:true

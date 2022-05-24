@@ -3,9 +3,7 @@ const StudentChat = require("../../Models/Student/Chat")
 // const LeaderReg = require("../Models/Student/leaderReg")
 const StudentReg = require("../../Models/Student/studentReg")
 const StudentRequest = require("../../Models/Student/requests")
-
-
-
+const File = require("../../Models/Student/topicRequest")
 
 //-------------------  Thivanka -  Student API Start -------------------------------------------------------------------------------------------------------
 
@@ -130,6 +128,90 @@ router.route("/leader/name/:id").get((req, res) => {
             res.json(details.FistrMemberName);
         })
 })
+
+
+router.route("/second/id/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.secondMemberRegNo);
+        })
+})
+
+router.route("/second/name/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.secondMemberName);
+        })
+})
+
+router.route("/third/id/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.thirdMemberRegNo);
+        })
+})
+
+router.route("/third/name/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.thirdMemberName);
+        })
+})
+
+router.route("/fourth/id/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.fourthMemberRegNo);
+        })
+})
+
+router.route("/fourth/name/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.fourthMemberName);
+        })
+})
+
+router.route("/fifth/id/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.fivthMemberRegNo);
+        })
+})
+
+router.route("/fifth/name/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.fivthMemberName);
+        })
+})
+
+router.route("/sixth/id/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.sixthMemberRegNo);
+        })
+})
+
+router.route("/sixth/name/:id").get((req, res) => {
+    let id = req.params.id;
+    StudentReg.findOne({ GrpID: { $eq: id } })
+        .exec(function (err, details) {
+            res.json(details.sixthMemberName);
+        })
+})
+
+
+
 // other members registration
 router.route("/group/reg/:groupID").put((req, res) => {
     let GrpID = req.params.groupID;
@@ -191,22 +273,41 @@ router.route("/remove/studentRequest/:id/:name").get((req, res) => {
             res.json(errr);
         })
 })
+
+//topic request details
+
+router.route("/request/save").post((req, res) => {
+    const { ID } = req.body
+    const { Faculty } = req.body
+    const { Topic } = req.body
+    const { Discription } = req.body
+    const paths = req.file.path
+
+    console.log("ID")
+
+    const files = new File({ ID: ID,Faculty:Faculty,Topic:Topic,Discription:Discription,avatar: paths })
+    files.save()
+        .then((data) => {
+            res.json(data)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
+//get topic request details
+
+router.route("/file/get").get((req, res) => {
+    File.find()
+        .then((data) => {
+            res.json(data)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
 //-------------------  Thivanka - Student API End -------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
