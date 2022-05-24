@@ -4,16 +4,22 @@ var schema = new mongoose.Schema({
     ID:{
         type:String   
     },
-    Type:{
+    Department:{
         type:String
     },
-    Details:{
+    Specialization:{
         type:String
     },
-    Deadline:{
+    RField:{
         type:String
     },
-    Marks:{
+    Name:{
+        type:String
+    },
+    Email:{
+        type:String
+    },
+    MobileN:{
         type:String
     }
 })

@@ -5,7 +5,7 @@ export const Studentg = () => {
   return (
     <div>
       <NavBarSG/>
-      <label className='ttitle'>Student Groups</label>
+      <label className='ttitle'>Assigned_groups</label>
       <table className='table'>
           <tr>
             <th>ID</th>

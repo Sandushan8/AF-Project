@@ -74,7 +74,11 @@ const userSchema = new Schema({
     password:{
         type:String,
         require:true
-    },   
+    },
+    PanelM:{
+        type:String,
+        require:true
+    }   
     
     
 })
