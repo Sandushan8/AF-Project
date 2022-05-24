@@ -7,7 +7,7 @@ import '../../css/Admin/tables'
 export const Uploads = () => {
   const [subData,setData] =useState([])
   const [marksData,setMData] = useState([])
-  const [upfiles,setupfiles] = useState([])
+  
 
   useEffect(()=>{
     axios.get('http://localhost:8000/submission').then((getData)=>{
@@ -36,10 +36,7 @@ export const Uploads = () => {
     axios.delete(`http://localhost:8000/markingscheme/${MID}`)
     
   })
-  const passFiledelete = ((FID)=>{
-    axios.delete(`http://localhost:8000/upload/${FID}`)
-    
-  })
+  
 
   const setSID =(data)=>{
     localStorage.setItem('id',data._id)
@@ -121,27 +118,6 @@ export const Uploads = () => {
             })} 
           </tbody>
         </table><br/>
-        
-        {/* <label className='ttitle'>Uploaded Documents</label>
-        <div className='uploadstab'>
-            <table className='tableup'>
-              <tr className='headt'>
-                <th>Name</th>
-                <th>Delete</th>
-              </tr>
-              <tbody className='tbody'>
-              {upfiles.map((data)=>{
-              return(
-                <tr>
-                  <td>{data.Name}</td>
-                  <td><button className='delete' onClick={()=>passFiledelete(data._id)}>Delete</button></td>
-                </tr>
-              )
-            })} 
-              </tbody>
-            </table>
-            </div> */}
-
         </div>
     </div>
   )

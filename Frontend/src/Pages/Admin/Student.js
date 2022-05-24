@@ -1,41 +1,104 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
-import '../../css/Admin/userdiv.css'
+import axios from 'axios'
 
 export const Student = () =>{
+  const [apiData,setData] =useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/users/student').then((getData)=>{
+      setData(getData.data)
+    })
+  })
+
     return(
       <div>
       <NavBarUSubtopic/>
-        <div className='members'>
+        <div className='usercontainer'>
         <label className='ttitle'>Student</label>
             <table className='table'>
-          <tr>
+          <tr className='headt'>
             <th>ID</th>
-            <th>Type</th>
-            <th>Email</th>
-            <th>Special Details</th>
-            <th>Pre-Payment</th>
-            <th>Price</th>
+            <th>Name</th>
             <th>Update</th>
             <th>Delete</th>
           </tr>
-          {/* <tbody class='tbody'>
+          <tbody class='tbody'>
             {apiData.map((data)=>{
               return(
                 <tr>
-                  <td>{data.ID}</td>
-                  <td>{data.Type}</td>
-                  <td>{data.Email}</td>
-                  <td>{data.SDetes}</td>
-                  <td>{data.PP}</td>
-                  <td>{data.Price}</td>
-                  <td><Link to='/update'><button class='update' onClick={()=>setID(data.ID)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passdelete(data.ID)}>Delete</button></td>
+                  <td>{data.FistrMemberRegNo}</td>
+                  <td>{data.FistrMemberName}</td>
+                  <td><button class='update'>Update</button></td>
+                  <td><button class='delete'>Delete</button></td>
                 </tr>
               )
             })}
-            
-          </tbody> */}
+          </tbody>
+          <tbody class='tbody'>
+            {apiData.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.secondMemberRegNo}</td>
+                  <td>{data.secondMemberName}</td>
+                  <td><button class='update'>Update</button></td>
+                  <td><button class='delete'>Delete</button></td>
+                </tr>
+              )
+            })}
+          </tbody>
+
+          <tbody class='tbody'>
+            {apiData.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.thirdMemberRegNo}</td>
+                  <td>{data.thirdMemberName}</td>
+                  <td><button class='update'>Update</button></td>
+                  <td><button class='delete'>Delete</button></td>
+                </tr>
+              )
+            })}
+          </tbody>
+          <tbody class='tbody'>
+            {apiData.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.fourthMemberRegNo}</td>
+                  <td>{data.fourthMemberName}</td>
+                  <td><button class='update'>Update</button></td>
+                  <td><button class='delete'>Delete</button></td>
+                </tr>
+              )
+            })}
+          </tbody>
+          <tbody class='tbody'>
+            {apiData.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.fivthMemberRegNo}</td>
+                  <td>{data.fivthMemberName}</td>
+                  <td><button class='update'>Update</button></td>
+                  <td><button class='delete'>Delete</button></td>
+                </tr>
+              )
+            })}
+          </tbody>
+          <tbody class='tbody'>
+            {apiData.map((data)=>{
+              return(
+                <tr>
+                  <td>{data.sixthMemberRegNo}</td>
+                  <td>{data.sixthMemberName}</td>
+                  <td><button class='update'>Update</button></td>
+                  <td><button class='delete'>Delete</button></td>
+                </tr>
+              )
+            })}
+          </tbody>
+          
+
+
         </table>
         </div>
         </div>

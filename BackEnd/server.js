@@ -49,7 +49,7 @@ app.delete('/markingscheme/:id',iroutes.deletem)
 //-------------------
 //file uploads
 app.use('/files',require('./Routes/Admin/Upload'))
-
+app.use('/users',require('./Routes/Admin/Users'))
 //Display the working port
 app.listen(port,()=>{
     console.log(`This Server is running in this ${port} port`)

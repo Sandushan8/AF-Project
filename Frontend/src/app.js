@@ -19,6 +19,7 @@ import { Uploads } from './Pages/Admin/Uploads'
 import { Users } from './Pages/Admin/Users'
 import { UpdateSub } from './Pages/Admin/UpdateSub'
 import { UpdateMark } from './Pages/Admin/UpdateMark'
+
 //student routes
 
 import LoginPage from './Pages/Student/loginPage';
@@ -33,6 +34,7 @@ import MemberReg from './Pages/Student/memberRegistration';
 // import Test from './test';
 import TopicRegister from './Pages/Student/topicRegistration';
 import MyRequest from './Pages/Student/myRequest';
+import { Panelmform } from './Pages/Admin/Panelmform'
 
 //student routes end
 
@@ -57,7 +59,8 @@ const App = () => {
                 <Route exact path='/NewMark' component={NewMark}/>  
                 <Route exact path='/UpDoc' component={UpDoc}/>
                 <Route exact path='/UpdateSub' component={UpdateSub}/>      
-                <Route exact path='/UpdateMark' component={UpdateMark}/> 
+                <Route exact path='/UpdateMark' component={UpdateMark}/>
+                <Route exact path='/assignpm' component={Panelmform}/> 
 
                 {/* Admin routes */}
                 <Route exact path='/AdminHome' component={Main} />

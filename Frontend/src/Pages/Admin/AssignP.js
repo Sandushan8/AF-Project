@@ -1,40 +1,48 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { NavBarSGSub } from '../../Components/Admin/NavBarSGSub'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 export const AssignP = () => {
+  const [apiData,setData] =useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/users/student').then((getData)=>{
+      setData(getData.data)
+    })
+  })
+
   return (
     <div>
       <NavBarSGSub/>
+      <div className='bodyAd'>
+      <br/>
       <label className='ttitle'>Assign panel members</label>
       <table className='table'>
-          <tr>
-            <th>ID</th>
-            <th>Type</th>
-            <th>Email</th>
-            <th>Special Details</th>
-            <th>Pre-Payment</th>
-            <th>Price</th>
-            <th>Update</th>
-            <th>Delete</th>
+          <tr className='headt'>
+            <th>Group ID</th>
+            <th>Group Leader ID</th>
+            <th>Group Leader Name</th>
+            <th>Group Leader Email</th>
+            <th>Faculty</th>
+            <th className='upd'>Add a Panel</th>
           </tr>
-          {/* <tbody class='tbody'>
+          <tbody class='tbody'>
             {apiData.map((data)=>{
               return(
                 <tr>
-                  <td>{data.ID}</td>
-                  <td>{data.Type}</td>
-                  <td>{data.Email}</td>
-                  <td>{data.SDetes}</td>
-                  <td>{data.PP}</td>
-                  <td>{data.Price}</td>
-                  <td><Link to='/update'><button class='update' onClick={()=>setID(data.ID)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passdelete(data.ID)}>Delete</button></td>
-                </tr>
+                  <td>{data.GrpID}</td>
+                  <td>{data.FistrMemberRegNo}</td>
+                  <td>{data.FistrMemberName}</td>
+                  <td>{data.FistrMemberEmail}</td>
+                  <td>{data.faculty}</td>
+                  <td><Link to='/assignpm'><button className='update'>Add panel member</button></Link></td>
+                  </tr>
               )
-            })}
-            
-          </tbody> */}
+            })} 
+          </tbody>
         </table>
+    </div>
     </div>
   )
 }
