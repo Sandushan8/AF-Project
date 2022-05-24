@@ -11,8 +11,8 @@ export const UpDoc = () => {
 
   const senddoc=()=>{
     const formData = new FormData();
-    formData.append('File',file)
-    axios.post(`http://localhost:8000/upload/${fname}`,formData,{headers:{'Content-Type':'multipart/form-data'}})
+    formData.append('file',file)
+    axios.post(`http://localhost:8000/files/upload/${fname}`,formData,{headers:{'Content-Type':'multipart/form-data'}})
   }
   
   return (
@@ -26,7 +26,7 @@ export const UpDoc = () => {
         <h2>Enter a File Name:</h2>
         <input type='text' onChange={(e)=>{setfilename(e.target.value)}}/>
         <br/><br/>
-        <input type='file' onChange={(e)=>{setfile(e.target.files[0])}}/>
+        <input type='file' name='file' onChange={(e)=>{setfile(e.target.files[0])}}/>
         <br/>
         <br/>
         <Link to='/AdminUploads'><input type='submit' value=' Add ' className='formsubmit' onClick={senddoc}/></Link> 

@@ -1,7 +1,7 @@
 const submission = require('../../Models/Admin/SubmissionT')
 const markingscheme = require('../../Models/Admin/MarkingScheme')
 const multr = require("multer");
-const fileup = require('../../Models/Admin/FileUpload')
+//const fileup = require('../../Models/Admin/FileUpload')
 
 //submission
 exports.creates = async (req,res) =>{
@@ -120,54 +120,54 @@ exports.deletem = async (req,res)=>{
 //storage
 //fileup
 
-const strg = multr.diskStorage({
-    destination:'./uploads',
-    filename:(req,file,callback) =>{
-        callback(null,file.originalname)
-    },
-})
+// const strg = multr.diskStorage({
+//     destination:'./uploads',
+//     filename:(req,file,callback) =>{
+//         callback(null,file.originalname)
+//     },
+// })
 
-const upload = multr({
-    storage:strg
-}).single('File')
+// const upload = multr({
+//     storage:strg
+// }).single('File')
 
-exports.uploadfile = async (req,res)=>{
-    upload(req,res,(err)=>{
-        if(err){
-            console.log(err)
-        }
-        else{
-            const newFile = new fileup({
-                Name: req.params.fname,
-                File:{
-                    data:req.file.filename,
-                    contentType: 'txt'
-                }
-            })
-            newFile.save()
-            .then(()=>res.send('Success upload')).catch(err=>{console.log(err)})
-        }
-    })
-}
-exports.findfile = async (req,res)=>{
-    fileup.find().then(sub=>{
-        res.send(sub)
-    })
-    .catch(err=>{
-        res.status(500).send({
-            message:err.message||"Error in Get"
-        })
-    })
- }
+// exports.uploadfile = async (req,res)=>{
+//     upload(req,res,(err)=>{
+//         if(err){
+//             console.log(err)
+//         }
+//         else{
+//             const newFile = new fileup({
+//                 Name: req.params.fname,
+//                 File:{
+//                     data:req.file.filename,
+//                     contentType: 'txt'
+//                 }
+//             })
+//             newFile.save()
+//             .then(()=>res.send('Success upload')).catch(err=>{console.log(err)})
+//         }
+//     })
+// }
+// exports.findfile = async (req,res)=>{
+//     fileup.find().then(sub=>{
+//         res.send(sub)
+//     })
+//     .catch(err=>{
+//         res.status(500).send({
+//             message:err.message||"Error in Get"
+//         })
+//     })
+//  }
 
- exports.deletefile = async (req,res)=>{
-    if(!req.body){
-        return res.send({message:'Empty'})
-    }
-    const id = req.params.id
-    fileup.findByIdAndDelete(id)
-    .then(
-            res.send('Successfully deleted') 
-    )
-}
+//  exports.deletefile = async (req,res)=>{
+//     if(!req.body){
+//         return res.send({message:'Empty'})
+//     }
+//     const id = req.params.id
+//     fileup.findByIdAndDelete(id)
+//     .then(
+//             res.send('Successfully deleted') 
+//     )
+// }
 
