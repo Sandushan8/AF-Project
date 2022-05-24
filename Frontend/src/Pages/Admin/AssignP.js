@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from 'react'
-import { NavBarSGSub } from '../../Components/Admin/NavBarSGSub'
+import { NavBarSG } from '../../Components/Admin/NavBarSG'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
@@ -12,9 +12,13 @@ export const AssignP = () => {
     })
   })
 
+  const setGID = (id)=>{
+    localStorage.setItem("id",id)
+  }
+
   return (
     <div>
-      <NavBarSGSub/>
+      <NavBarSG/>
       <div className='bodyAd'>
       <br/>
       <label className='ttitle'>Assign panel members</label>
@@ -25,7 +29,8 @@ export const AssignP = () => {
             <th>Group Leader Name</th>
             <th>Group Leader Email</th>
             <th>Faculty</th>
-            <th className='upd'>Add a Panel</th>
+            <th>Panel member</th>
+            <th className='upd'>Add a Panel member</th>
           </tr>
           <tbody class='tbody'>
             {apiData.map((data)=>{
@@ -36,7 +41,8 @@ export const AssignP = () => {
                   <td>{data.FistrMemberName}</td>
                   <td>{data.FistrMemberEmail}</td>
                   <td>{data.faculty}</td>
-                  <td><Link to='/assignpm'><button className='update'>Add panel member</button></Link></td>
+                  <td>{data.PanelM}</td>
+                  <td><Link to='/assignpm'><button className='update' onClick={setGID(data.GrpID)}>Add panel member</button></Link></td>
                   </tr>
               )
             })} 

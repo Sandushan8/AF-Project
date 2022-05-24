@@ -20,8 +20,8 @@ export const Student = () =>{
           <tr className='headt'>
             <th>ID</th>
             <th>Name</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
           </tr>
           <tbody class='tbody'>
             {apiData.map((data)=>{

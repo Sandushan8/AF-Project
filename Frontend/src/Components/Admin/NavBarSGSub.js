@@ -5,10 +5,9 @@ export const NavBarSGSub = () => {
   return (
     <div className='navA'>
         <nav className='Adnav'>
-            <label className='alogo'>STUDENT GROUPS</label>
+            <label className='alogo'>Assign Panel Members</label>
             <ul className='a_navul'>
-            <Link to='/AdminStudentg'><li className='a_navli'>Home</li></Link>
-            <Link to='/AssignP'><li className='a_navli'>Assign panel members</li></Link>
+            <Link to='/AdminStudentg'><li className='a_navli'>Student Groups</li></Link> 
             </ul>
         </nav>
     </div>

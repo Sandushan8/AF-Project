@@ -47,7 +47,7 @@ const App = () => {
                 //main
                 <Route exact path='/AdminHome' component={Main}/>
                 <Route exact path='/AdminUser' component={Users}/>
-                <Route exact path='/AdminStudentg' component={Studentg}/>
+                <Route exact path='/AdminStudentg' component={AssignP}/>
                 <Route exact path='/AdminUploads' component={Uploads}/>
                 //sub
                 <Route exact path='/CoSupervisor' component={CoSupervisor}/>
