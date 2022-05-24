@@ -1,15 +1,15 @@
 import React from 'react'
 import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
-import '../../css/Admin/userdiv.css'
+
 
 export const PanelMember = () =>{
     return(
       <div>
       <NavBarUSubtopic/>
-        <div className='members'>
+        <div className='usercontainer'>
         <label className='ttitle'>Panel Member</label>
             <table className='table'>
-          <tr>
+          <tr className='headt'>
             <th>ID</th>
             <th>Department</th>
             <th>Name</th>
