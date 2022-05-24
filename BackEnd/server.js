@@ -2,7 +2,7 @@ const express = require("express");
 const mogoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const dotenv = require("dotenv");
+
 require("dotenv").config();
 
 //Ihill files
@@ -30,23 +30,26 @@ const connection = mogoose.connection;
 connection.once("open",()=>{
     console.log("This database is Connection success!");
 })
+
 //Thivanka Routes
 app.use("/details",require("./Routes/Student/apiRoutes"));
 
 //Ihill Routes
+//submission type
 app.post('/submission',iroutes.creates)
 app.get('/submission',iroutes.finds)
 app.put('/submission/:id',iroutes.updates)
 app.delete('/submission/:id',iroutes.deletes)
 //-----------------
+//marking schemes
 app.post('/markingscheme',iroutes.createm)
 app.get('/markingscheme',iroutes.findm)
 app.put('/markingscheme/:id',iroutes.updatem)
 app.delete('/markingscheme/:id',iroutes.deletem)
 //-------------------
-app.post('/upload/:fname',iroutes.uploadfile)
-app.get('/upload',iroutes.findfile)
-app.delete('/upload/:id',iroutes.deletefile)
+//file uploads
+app.use('/files',require('./Routes/Admin/Upload'))
+
 //Display the working port
 app.listen(port,()=>{
     console.log(`This Server is running in this ${port} port`)

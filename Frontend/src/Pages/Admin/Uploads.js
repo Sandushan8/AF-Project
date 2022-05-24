@@ -122,7 +122,7 @@ export const Uploads = () => {
           </tbody>
         </table><br/>
         
-        <label className='ttitle'>Uploaded Documents</label>
+        {/* <label className='ttitle'>Uploaded Documents</label>
         <div className='uploadstab'>
             <table className='tableup'>
               <tr className='headt'>
@@ -140,7 +140,7 @@ export const Uploads = () => {
             })} 
               </tbody>
             </table>
-            </div>
+            </div> */}
 
         </div>
     </div>
