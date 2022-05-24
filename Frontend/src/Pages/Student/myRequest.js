@@ -27,13 +27,11 @@ function MyRequest() {
                 <div className="headingWrapper">
                     <h3 className="reqHeading">My Requests</h3>
                 </div>
-                
                     {data.map((detail) => (
                         <div>
                             <Requests name={detail.Name} topic={detail.Topic} Dis={detail.TopicDiscription} date={detail.submitdate} position={detail.position} />
                         </div>
                     ))}
-                
             </div>
             <Footer />
         </div>

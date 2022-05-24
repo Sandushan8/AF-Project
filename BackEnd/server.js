@@ -9,6 +9,7 @@ require("dotenv").config();
 const iroutes = require('./Routes/Admin/Adminfunctions')
 
 const app = express();
+const upload = require("./middleware/upload")
 
 //port Number Assign
 const port = process.env.port || 8000;
@@ -31,6 +32,11 @@ connection.once("open",()=>{
     console.log("This database is Connection success!");
 })
 
+
+ app.use("/details",require("./Routes/Student/apiRoutes"));
+ app.use("/topic",upload.single('avatar'),require("./Routes/Student/topicReg"));
+ 
+
 //Thivanka Routes
 app.use("/details",require("./Routes/Student/apiRoutes"));
 
@@ -50,6 +56,7 @@ app.delete('/markingscheme/:id',iroutes.deletem)
 //file uploads
 app.use('/files',require('./Routes/Admin/Upload'))
 app.use('/users',require('./Routes/Admin/Users'))
+
 //Display the working port
 app.listen(port,()=>{
     console.log(`This Server is running in this ${port} port`)

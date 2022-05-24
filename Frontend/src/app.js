@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import { AssignP } from './Pages/Admin/AssignP'
-import { CoSupervisor } from './Pages/Admin/CoSupervisor'
+import { CoSupervisor } from './Pages/Admin/CoSupervisor' 
 
 
 //Admin routes
