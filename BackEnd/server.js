@@ -5,6 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 require("dotenv").config();
 const app = express();
+const upload = require("./middleware/upload")
 
 //port Number Assign
 const port = process.env.port || 8000;
@@ -26,6 +27,7 @@ connection.once("open",()=>{
 })
 
  app.use("/details",require("./Routes/Student/apiRoutes"));
+ app.use("/topic",upload.single('avatar'),require("./Routes/Student/topicReg"));
  
 //Display the working port
 app.listen(port,()=>{
