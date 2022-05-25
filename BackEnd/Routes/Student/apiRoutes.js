@@ -307,6 +307,22 @@ router.route("/file/get").get((req, res) => {
         })
 })
 
+//delete members findOneAndDelete  { FistrMemberName: { $eq: name },FistrMemberRegNo: { $eq: regNo } }||{ secondMemberName: { $eq: name },secondMemberRegNo: { $eq: regNo } }||{ thirdMemberName: { $eq: name },thirdMemberRegNo: { $eq: regNo } }||{ fourthMemberName: { $eq: name },fourthMemberRegNo: { $eq: regNo } }||{ fivthMemberName: { $eq: name },fivthMemberRegNo: { $eq: regNo } }|| { sixthMemberName: { $eq: name },sixthMemberRegNo: { $eq: regNo } }
+
+// router.route("/student/delete/:id/:name/:reg").get((req, res) => {
+//     let id = req.params.id;
+//     let name = req.params.name;
+//     let regNo=req.params.reg;
+
+//     StudentReg.findByIdAndUpdate({$replaceOne: { input: "$FistrMemberName", find: name, replacement: "" }})
+//         .then((data) => { 
+//             res.json(data)
+//         })
+//         .catch(err => {
+//             res.json(err)
+//         })
+// })
+
 //-------------------  Thivanka - Student API End -------------------------------------------------------------------------------------------------------
 
 
