@@ -55,6 +55,8 @@ app.delete('/markingscheme/:id',iroutes.deletem)
 //-------------------
 //file uploads
 app.use('/files',require('./Routes/Admin/Upload'))
+//-------------------
+//user routes
 app.use('/users',require('./Routes/Admin/Users'))
 
 //Display the working port

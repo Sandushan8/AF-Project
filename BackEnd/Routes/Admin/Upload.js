@@ -35,7 +35,7 @@ var storage = new GridFsStorage({
 })
 const upload = multer({storage})
 
-router.route('/upload/:filename').post(upload.single('file'),(req,res)=>{
+router.route('/upload').post(upload.single('file'),(req,res)=>{
     
     res.json({file: req.file})
 })
