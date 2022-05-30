@@ -42,7 +42,7 @@ export const AssignP = () => {
                   <td>{data.FistrMemberEmail}</td>
                   <td>{data.faculty}</td>
                   <td>{data.PanelM}</td>
-                  <td><Link to='/assignpm'><button className='update' onClick={setGID(data.GrpID)}>Add panel member</button></Link></td>
+                  <td><Link to='/assignpm'><button className='update' onClick={()=>setGID(data.GrpID)}>Add panel member</button></Link></td>
                   </tr>
               )
             })} 
