@@ -17,11 +17,9 @@ export const PanelMember = () =>{
         <label className='ttitle'>Panel Member</label>
         <table className='table'>
           <tr className='headt'>
-            
             <th>Name</th>
             <th>Email</th>
             <th>Password</th>
-            
             <th className='upd'>Update</th>
             <th className='upd'>Delete</th>
           </tr>
