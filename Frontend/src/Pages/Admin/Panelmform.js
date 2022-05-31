@@ -28,8 +28,8 @@ export const Panelmform = () => {
         <div className='formbody'>
         <label className='ttitle'>Add_Panel_Member</label><br/>
         <div className='Form'>
-        <label>Panel Member ID</label><br/>
-        <input type='text' placeholder='Enter Panel Member ID' onChange={(e)=>{
+        <label>Panel Member Email</label><br/>
+        <input type='text' placeholder='Enter Panel Member Email' onChange={(e)=>{
           setID(e.target.value)
         }}/><br/><br/> 
         <div className='formbuttons'>
@@ -40,22 +40,15 @@ export const Panelmform = () => {
         <h2>Panel Members</h2>
         <table className='table'>
           <tr className='headt'>
-            <th>Staff ID</th>
-            <th>Department</th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Mobile Number</th>
-            
+            <th>Email</th>     
           </tr>
           <tbody class='tbody'>
             {apiData.map((data)=>{
               return(
                 <tr>
-                  <td>{data.ID}</td>
-                  <td>{data.Department}</td>
-                  <td>{data.Name}</td>
-                  <td>{data.Email}</td>
-                  <td>{data.MobileN}</td>
+                  <td>{data.username}</td>
+                  <td>{data.email}</td>
                   </tr>
               )
             })} 

@@ -12,13 +12,14 @@ import { NewMark } from './Pages/Admin/NewMark'
 import { NewSub } from './Pages/Admin/NewSub'
 import { PanelMember } from './Pages/Admin/PanelMember'
 import { Student } from './Pages/Admin/Student'
-import { Studentg } from './Pages/Admin/Studentg'
+//import { Studentg } from './Pages/Admin/Studentg'
 import { Supervisor } from './Pages/Admin/Supervisor'
 import { UpDoc } from './Pages/Admin/UpDoc'
 import { Uploads } from './Pages/Admin/Uploads'
 import { Users } from './Pages/Admin/Users'
 import { UpdateSub } from './Pages/Admin/UpdateSub'
 import { UpdateMark } from './Pages/Admin/UpdateMark'
+import { UpdateStaff } from './Pages/Admin/UpdateStaff'
 
 //student routes
 
@@ -61,12 +62,8 @@ const App = () => {
                 <Route exact path='/UpdateSub' component={UpdateSub}/>      
                 <Route exact path='/UpdateMark' component={UpdateMark}/>
                 <Route exact path='/assignpm' component={Panelmform}/> 
-
-                {/* Admin routes */}
-                <Route exact path='/AdminHome' component={Main} />
-                <Route exact path='/AdminUser' component={Users} />
-                <Route exact path='/AdminStudentg' component={Studentg} />
-                <Route exact path='/AdminUploads' component={Uploads} />
+                <Route exact path='/UpdateStaff' component={UpdateStaff}/>
+                
 
                 {/* Admin routes end */}
 
