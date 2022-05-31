@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const student = require('../../Models/Student/studentReg')
-const panelmember = require('../../Models/Admin/panelmember')
+const panelmember = require('../../Models/Admin/registration')
 
 router.route("/student").get((req, res) => {
  student.find().then((data)=>{
@@ -23,22 +23,9 @@ router.route('/student/:gid/:pmid').patch((req,res)=>{
 // router.route("/cosupervisor").get((req, res) => {
  
 // })
-router.route("/panelmember").post((req, res) => {
- const pm = new panelmember({
-     ID:req.body.ID,
-     Department:req.body.Dep,
-     Name:req.body.Name,
-     Email:req.body.Email,
-     MobileN:req.body.MobileN,
-     
-    })
-    console.log(req.body)
-    pm.save(pm).then(data=>{
-        res.json(data)
-    })
-})
+
 router.route("/panelmember").get((req, res) => {
-    panelmember.find().then(data=>{
+    panelmember.find({staff_type:'Panel Member'}).then(data=>{
         res.json(data)
     })
 })

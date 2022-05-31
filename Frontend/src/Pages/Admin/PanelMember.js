@@ -17,11 +17,11 @@ export const PanelMember = () =>{
         <label className='ttitle'>Panel Member</label>
         <table className='table'>
           <tr className='headt'>
-            <th>Staff ID</th>
-            <th>Department</th>
+            
             <th>Name</th>
             <th>Email</th>
-            <th>Mobile Number</th>
+            <th>Password</th>
+            
             <th className='upd'>Update</th>
             <th className='upd'>Delete</th>
           </tr>
@@ -29,11 +29,11 @@ export const PanelMember = () =>{
             {apiData.map((data)=>{
               return(
                 <tr>
-                  <td>{data.ID}</td>
-                  <td>{data.Department}</td>
-                  <td>{data.Name}</td>
-                  <td>{data.Email}</td>
-                  <td>{data.MobileN}</td>
+                  
+                  <td>{data.username}</td>
+                  <td>{data.email}</td>
+                  <td>{data.password}</td>
+                  
                   <td><button className='update'>Update</button></td>
                   <td><button className='delete'>Delete</button></td>
                   </tr>
