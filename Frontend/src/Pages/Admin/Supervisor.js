@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const Supervisor = () =>{
   const [apiData,setData] =useState([])
@@ -10,6 +11,14 @@ export const Supervisor = () =>{
       setData(getData.data)
     })
   })
+  const setID =(id)=>{
+    localStorage.setItem('id',id)
+    console.log(id)
+  }
+  const passdelete =(id) =>{
+    axios.delete(`http://localhost:8000/users/staff/${id}`)
+    
+  }
     return(
       <div>
       <NavBarUSubtopic/>
@@ -17,6 +26,7 @@ export const Supervisor = () =>{
         <label className='ttitle'>Supervisor</label>
         <table className='table'>
           <tr className='headt'>
+            <th>Role</th>
             <th>Name</th>
             <th>Email</th>
             <th>Password</th>
@@ -27,13 +37,12 @@ export const Supervisor = () =>{
             {apiData.map((data)=>{
               return(
                 <tr>
-                  
+                  <td>{data.staff_type}</td>
                   <td>{data.username}</td>
                   <td>{data.email}</td>
                   <td>{data.password}</td>
-                  
-                  <td><button className='update'>Update</button></td>
-                  <td><button className='delete'>Delete</button></td>
+                  <td><Link to='/UpdateStaff'><button className='update' onClick={()=>setID(data._id)}>Update</button></Link></td>
+                  <td><button className='delete'onClick={()=>passdelete(data._id)}>Delete</button></td>
                   </tr>
               )
             })} 
