@@ -1,42 +1,43 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
-
+import axios from 'axios'
 
 export const CoSupervisor = () =>{
+  const [apiData,setData] =useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/users/cosupervisor').then((getData)=>{
+      setData(getData.data)
+    })
+  })
     return(
       <div>
       <NavBarUSubtopic/>
         <div className='usercontainer'>
-        <label className='ttitle'>Co-Supervisor</label>
-            <table className='table'>
+        <label className='ttitle'>Co - Supervisor</label>
+        <table className='table'>
           <tr className='headt'>
-            <th>ID</th>
-            <th>Department</th>
-            <th>Specialization</th>
-            <th>Research Field</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Mobile Number</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Password</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
           </tr>
-          {/* <tbody class='tbody'>
+          <tbody class='tbody'>
             {apiData.map((data)=>{
               return(
                 <tr>
-                  <td>{data.ID}</td>
-                  <td>{data.Type}</td>
-                  <td>{data.Email}</td>
-                  <td>{data.SDetes}</td>
-                  <td>{data.PP}</td>
-                  <td>{data.Price}</td>
-                  <td><Link to='/update'><button class='update' onClick={()=>setID(data.ID)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passdelete(data.ID)}>Delete</button></td>
-                </tr>
+                  
+                  <td>{data.username}</td>
+                  <td>{data.email}</td>
+                  <td>{data.password}</td>
+                  
+                  <td><button className='update'>Update</button></td>
+                  <td><button className='delete'>Delete</button></td>
+                  </tr>
               )
-            })}
-            
-          </tbody> */}
+            })} 
+          </tbody>
         </table>
         </div>
         </div>

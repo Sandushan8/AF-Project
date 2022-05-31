@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const student = require('../../Models/Student/studentReg')
 const panelmember = require('../../Models/Admin/registration')
-
+//student
 router.route("/student").get((req, res) => {
  student.find().then((data)=>{
      res.json(data)
@@ -17,18 +17,26 @@ router.route('/student/:gid/:pmid').patch((req,res)=>{
         res.json(data)
     })
 })
-// router.route("/supervisor").get((req, res) => {
- 
-// })
-// router.route("/cosupervisor").get((req, res) => {
- 
-// })
-
+//staff
+//supervisor
+router.route("/supervisor").get((req, res) => {
+    panelmember.find({staff_type:'Supervisor'}).then(data=>{
+        res.json(data)
+    })
+})
+//cosupervisor
+router.route("/cosupervisor").get((req, res) => {
+    panelmember.find({staff_type:'Co-Supervisor'}).then(data=>{
+        res.json(data)
+    })
+})
+//panelmember
 router.route("/panelmember").get((req, res) => {
     panelmember.find({staff_type:'Panel Member'}).then(data=>{
         res.json(data)
     })
 })
+
 router.route('/panelmember/:id').delete((req,res) =>{
     let id = req.params.id
     panelmember.findByIdAndDelete(id)
