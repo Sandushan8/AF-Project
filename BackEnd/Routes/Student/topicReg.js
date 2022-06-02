@@ -58,18 +58,6 @@ router.route("/profilepic/update/:groupID").put((req, res) => {
             })
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
 })
 
 

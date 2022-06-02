@@ -1,12 +1,15 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Link,useHistory } from "react-router-dom";
 import "../../css/Student/navBar.css"
-import Avatar from "../../Images/Student/avatar.png"
+ 
 import Chat from "../../Images/Student/chat.png"
+import axios from "axios";
 
 function NavBar() {
     const history = useHistory();
     const id=sessionStorage.getItem('mySessionData')
+    const [details,setDetails]=useState("")
+
     const onConfirm = () => {
         sessionStorage.clear()
         history.push("/");
@@ -17,6 +20,18 @@ function NavBar() {
     const logOut = () => {
         window.confirm('Are you sure you wish to logout?') ? onConfirm("confirm") : onCancel("cancel")
     }
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/details/group/${id}`)
+            .then(res => {
+                setDetails(res.data)
+            })
+            .catch(() => {
+                alert('Login faild!!!');
+            });
+    }, [details])
+
+    
     return (
         <div>
             <div className="navigation clearfix">
@@ -34,7 +49,7 @@ function NavBar() {
                 <div className="AvatarLogin">
                     <Link to="/chat"> <img src={Chat} className="notification" width="30px" /> </Link>
                     <div className="dropdown">
-                        <img src={Avatar} className=" avatar dropdown" width="30px" />
+                        <img src={details.Img} className=" avatar dropdown" width="30px" />
                         <div class="dropdown-content">
                             <Link to="/studentProfile"> Edit Profile<br /> </Link>
                             <button className="logout" onClick={logOut}>LogOut</button>
