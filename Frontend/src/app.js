@@ -20,7 +20,7 @@ import { Users } from './Pages/Admin/Users'
 import { UpdateSub } from './Pages/Admin/UpdateSub'
 import { UpdateMark } from './Pages/Admin/UpdateMark'
 import { UpdateStaff } from './Pages/Admin/UpdateStaff'
-
+import { UpdateStudent } from './Pages/Admin/UpdateStudent'
 //student routes
 
 import LoginPage from './Pages/Student/loginPage';
@@ -63,7 +63,7 @@ const App = () => {
                 <Route exact path='/UpdateMark' component={UpdateMark}/>
                 <Route exact path='/assignpm' component={Panelmform}/> 
                 <Route exact path='/UpdateStaff' component={UpdateStaff}/>
-                
+                <Route exact path='/updatestudent' component={UpdateStudent}/>
 
                 {/* Admin routes end */}
 

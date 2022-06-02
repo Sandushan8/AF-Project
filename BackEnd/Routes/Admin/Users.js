@@ -1,22 +1,52 @@
 const router = require("express").Router();
-const student = require('../../Models/Student/studentReg')
+const studentg = require('../../Models/Student/studentReg')
+const student = require('../../Models/Admin/Student')
 const staff = require('../../Models/Admin/registration')
 //student
-router.route("/student").get((req, res) => {
- student.find().then((data)=>{
-     res.json(data)
- })
-})
+router.route('/studentdetes').post((req,res)=>{
+    const data = new student({
+        ID:req.body.ID, 
+        Name:req.body.Name,
+        Email:req.body.Email, 
+        Contact:req.body.Contact,
+        Faculty:req.body.Faculty
+    })
+    data
+        .save(data)
+        .then(data=>{
+            res.send(data)
+        })
+        .catch(err=>{
+            res.status(500).send({
+                message:err.message||"Error in create"
+            })
+        })
 
-router.route('/student/:gid/:pmid').patch((req,res)=>{
-    let groupid = req.params.gid
-    let panelmid = req.params.pmid
-    console.log(groupid,panelmid)
-    student.updateOne({GrpID:groupid},{$set:{PanelM:panelmid}})
-    .then((data)=>{
+})
+router.route('/studentdetes').get((req,res)=>{
+    student.find().then(data=>{
         res.json(data)
     })
 })
+
+
+router.route('/studentdetes/:id').put((req,res)=>{
+    let id =req.params.id
+    student.findByIdAndUpdate(id,req.body)
+    .then(data=>{
+        res.send(data)
+    })
+})
+router.route('/studentdetes/:id').delete((req,res)=>{
+    let id = req.params.id
+    student.findByIdAndDelete(id)
+    .then(
+        res.send('Successfully deleted') 
+    )
+})
+
+
+
 //staff
 //supervisor
 router.route("/supervisor").get((req, res) => {
@@ -76,6 +106,23 @@ router.route('/staff').post((req,res)=>{
                 message:err.message||"Error in create"
             })
         })
+})
+
+//fetch student groups
+router.route("/student").get((req, res) => {
+    studentg.find().then((data)=>{
+        res.json(data)
+    })
+   })
+//assign panel members
+router.route('/student/:gid/:pmid').patch((req,res)=>{
+    let groupid = req.params.gid
+    let panelmid = req.params.pmid
+    console.log(groupid,panelmid)
+    studentg.updateOne({GrpID:groupid},{$set:{PanelM:panelmid}})
+    .then((data)=>{
+        res.json(data)
+    })
 })
 
 module.exports = router
