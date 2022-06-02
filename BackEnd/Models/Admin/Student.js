@@ -18,6 +18,10 @@ const userSchema = new Schema({
     Contact:{
         type:String,
         require:true
+    },
+    Faculty:{
+        type:String,
+        require:true
     }
 })
 const Data = mongoose.model("student",userSchema);
