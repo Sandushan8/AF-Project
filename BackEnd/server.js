@@ -40,6 +40,11 @@ connection.once("open",()=>{
 //Thivanka Routes
 app.use("/details",require("./Routes/Student/apiRoutes"));
 
+//Punsisi Supervisor-Routes
+const supervisorRouter = require('./Routes/Supervisor/apiRoutes.js');
+
+app.use('/supervisor', supervisorRouter);
+
 //Ihill Routes
 //submission type
 app.post('/submission',iroutes.creates)
