@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import '../styles/table.css';
 import '../../css/Supervisor/table.css';
-// import Header from '../components/Header';
 import Header from "../../Components/Supervisor/Header";
 import axios from "axios";
 
