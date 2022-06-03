@@ -39,8 +39,10 @@ import { Panelmform } from './Pages/Admin/Panelmform'
 
 //student routes end
 
+
 //Supervisor routes
-import Header from './Components/Supervisor/Header'
+
+//import Header from './Components/Supervisor/Header'
 import SupervisorRegistration from './Pages/Supervisor/Registration'
 import Login from './Pages/Supervisor/Login'
 import MyAccount from './Pages/Supervisor/MyAccount'
@@ -94,14 +96,17 @@ const App = () => {
 
                 {/* Student routes end- */}
 
-                {/* Supervisor routes */}
-                <Route path="/header" exact component={Header} />
+
+                {/* Supervisor routes start here */}
+
                 <Route path="/register" exact component={SupervisorRegistration} />
                 <Route path="/login" exact component={Login} />
                 <Route path="/myAccount" exact component={MyAccount} />
                 <Route path="/supervisorProfile" exact component={SupervisorProfile} />
                 <Route path="/request" exact component={Request} />
                 <Route path="/topicEvaluate" exact component={ProjectEvaluate} />
+
+                {/* Supervisor routes end here */}
 
 
 
