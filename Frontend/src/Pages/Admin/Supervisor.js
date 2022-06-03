@@ -16,7 +16,7 @@ export const Supervisor = () =>{
     console.log(id)
   }
   const passdelete =(id) =>{
-    axios.delete(`http://localhost:8000/users/staff/${id}`)
+    axios.delete(`http://localhost:8000/users/supervisor/${id}`)
     
   }
     return(
@@ -26,10 +26,14 @@ export const Supervisor = () =>{
         <label className='ttitle'>Supervisor</label>
         <table className='table'>
           <tr className='headt'>
-            <th>Role</th>
+            <th>ID</th>
             <th>Name</th>
+            <th>Faculty</th>
+            <th>Position</th>
             <th>Email</th>
-            <th>Password</th>
+            <th>Contact</th>
+            <th>Area</th>
+            <th>About</th>
             <th className='upd'>Update</th>
             <th className='upd'>Delete</th>
           </tr>
@@ -37,11 +41,15 @@ export const Supervisor = () =>{
             {apiData.map((data)=>{
               return(
                 <tr>
-                  <td>{data.staff_type}</td>
-                  <td>{data.username}</td>
+                  <td>{data.s_id}</td>
+                  <td>{data.s_name}</td>
+                  <td>{data.faculty}</td>
+                  <td>{data.position}</td>
                   <td>{data.email}</td>
-                  <td>{data.password}</td>
-                  <td><Link to='/UpdateStaff'><button className='update' onClick={()=>setID(data._id)}>Update</button></Link></td>
+                  <td>{data.contact}</td>
+                  <td>{data.area}</td>
+                  <td>{data.about}</td>
+                  <td><Link to='/updatesupervisor'><button className='update' onClick={()=>setID(data._id)}>Update</button></Link></td>
                   <td><button className='delete'onClick={()=>passdelete(data._id)}>Delete</button></td>
                   </tr>
               )

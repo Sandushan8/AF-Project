@@ -21,6 +21,7 @@ import { UpdateSub } from './Pages/Admin/UpdateSub'
 import { UpdateMark } from './Pages/Admin/UpdateMark'
 import { UpdateStaff } from './Pages/Admin/UpdateStaff'
 import { UpdateStudent } from './Pages/Admin/UpdateStudent'
+import { UpdateSupervisor } from './Pages/Admin/UpdateSupervisor'
 //student routes
 
 import LoginPage from './Pages/Student/loginPage';
@@ -64,7 +65,7 @@ const App = () => {
                 <Route exact path='/assignpm' component={Panelmform}/> 
                 <Route exact path='/UpdateStaff' component={UpdateStaff}/>
                 <Route exact path='/updatestudent' component={UpdateStudent}/>
-
+                <Route exact path='/updatesupervisor' component={UpdateSupervisor}/>
                 {/* Admin routes end */}
 
                 {/* <Route path="/supervisorChat" exact component={Test} /> */}

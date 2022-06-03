@@ -10,6 +10,13 @@
     background-color: aliceblue;
     height: 400px;
 }
+.Formsup{
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aliceblue;
+    height: 600px;
+}
 .formbody{
     background: linear-gradient(135deg, black,cyan);
     height: 100vh;
