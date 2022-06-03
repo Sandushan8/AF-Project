@@ -23,7 +23,7 @@ export const UpdateSub = () => {
     Type:Type,
     Details:Details,
     Deadline:Deadline,
-    Marks:Marks})
+    Marks:Marks}).then(alert('Successfully Updated!'))
   }
 
   useEffect(()=>{

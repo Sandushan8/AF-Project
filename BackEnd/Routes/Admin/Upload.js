@@ -40,5 +40,10 @@ router.route('/upload').post(upload.single('file'),(req,res)=>{
     res.json({file: req.file})
 })
 
+router.route('/down').get((req,res)=>{
+    gfs.files.findOne().then((files)=>{
+        res.json(files)
+    })
+})
 
 module.exports = router

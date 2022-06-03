@@ -18,7 +18,7 @@ export const UpdateStudent= () => {
     Email:Email,
     Contact:Contact,
     Faculty:Faculty
-  })
+  }).then(alert('Successfully Updated!'))
 }
 useEffect(()=>{
     setid(localStorage.getItem('id'))
