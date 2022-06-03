@@ -237,8 +237,8 @@ router.route("/group/:id").get((req, res) => {
 
 //student Request save  
 router.route("/request/save").post((req, res) => {
-    const { name, position, id, topic, topicDis, submitdate } = req.body
-    const register = new StudentRequest({ Name: name, position: position, GrpID: id, Topic: topic, TopicDiscription: topicDis, submitdate: submitdate })
+    const { name, position, id, topic, topicDis, submitdate, email, status } = req.body
+    const register = new StudentRequest({ Name: name, position: position, GrpID: id, Topic: topic, TopicDiscription: topicDis, submitdate: submitdate, email: email, status: status })
     register.save((err, data) => {
         if (err) {
             return res.status(400).json({
