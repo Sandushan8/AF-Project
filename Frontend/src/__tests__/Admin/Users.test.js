@@ -1,6 +1,5 @@
 const axios =require("axios")
 
-
 const student = axios.get('http://localhost:8000/users/studentdetes')
 const supervisor = axios.get('http://localhost:8000/users/supervisor')
 const cosupervisor = axios.get('http://localhost:8000/users/cosupervisor')
@@ -21,5 +20,6 @@ test('fetch co-supervisor data', ()=>{
 test('fetch panel member data', ()=>{
   expect(panelmember).not.toBeNull()
 })
+
 
 
