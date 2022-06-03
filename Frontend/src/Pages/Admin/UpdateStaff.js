@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import '../../css/Admin/forms.css'
+import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
 export const UpdateStaff= () => {
     const [id,setid] = useState(null)
   const [Type,setType] = useState('')
@@ -15,7 +16,7 @@ export const UpdateStaff= () => {
     username:Name,
     email:Email,
     password:password
-  })
+  }).then(alert('Successfully Updated!'))
 }
 useEffect(()=>{
     setid(localStorage.getItem('id'))
@@ -24,15 +25,12 @@ useEffect(()=>{
 console.log(id)
   return (
     <div>
-      
+        <NavBarUSubtopic/>
         <div className='formbody'>
         <h1 className='ttitle'>Update_Staff</h1>
         <div className='Form'>
         <label>Staff Type</label><br/>
-        <label>Supervisor </label>
-        <input type='radio' name='stype' value='Supervisor'  onChange={(e)=>{
-          setType('Supervisor')
-        }}/>
+        
         <label> Co-Supervisor </label>
         <input type='radio' name='stype' value='Co-Supervisor'  onChange={(e)=>{
           setType('Co-Supervisor')

@@ -16,7 +16,7 @@ export const NewSub = () => {
     Type:Type,
     Details:Details,
     Deadline:Deadline,
-    Marks:Marks})
+    Marks:Marks}).then(alert('Successfully added!'))
   }
 
   return (

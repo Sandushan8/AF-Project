@@ -15,7 +15,7 @@ export const PanelMember = () =>{
     localStorage.setItem('id',id)
   }
   const passdelete =(id) =>{ 
-      axios.delete(`http://localhost:8000/users/staff/${id}`) 
+      axios.delete(`http://localhost:8000/users/staff/${id}`).then(alert('Successfully Deleted!'))
     console.log(id)
   }
     return(

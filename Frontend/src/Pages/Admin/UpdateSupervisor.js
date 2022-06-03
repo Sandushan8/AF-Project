@@ -24,7 +24,7 @@ export const UpdateSupervisor= () => {
     contact:Contact,
     area:area,
     about:about
-  })
+  }).then(alert('Successfully Updated!'))
 }
 useEffect(()=>{
     setid(localStorage.getItem('id'))

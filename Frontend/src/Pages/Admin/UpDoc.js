@@ -12,7 +12,7 @@ export const UpDoc = () => {
   const senddoc=()=>{
     const formData = new FormData();
     formData.append('file',file)
-    axios.post(`http://localhost:8000/files/upload`,formData,{headers:{'Content-Type':'multipart/form-data'}})
+    axios.post(`http://localhost:8000/files/upload`,formData,{headers:{'Content-Type':'multipart/form-data'}}).then(alert('Successfully added!'))
   }
   
   return (

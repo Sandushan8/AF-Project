@@ -16,7 +16,7 @@ export const Supervisor = () =>{
     console.log(id)
   }
   const passdelete =(id) =>{
-    axios.delete(`http://localhost:8000/users/supervisor/${id}`)
+    axios.delete(`http://localhost:8000/users/supervisor/${id}`).then(alert('Successfully Deleted!'))
     
   }
     return(

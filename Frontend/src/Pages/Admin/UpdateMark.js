@@ -35,7 +35,7 @@ export const UpdateMark = () => {
     Details:Details,
     MarksA:MarksA,
     SpecialI:SpecialI
-  })
+  }).then(alert('Successfully Updated!'))
 }
 
   

@@ -21,19 +21,12 @@ export const Uploads = () => {
     })
   })
 
-  useEffect(()=>{
-    axios.get('http://localhost:8000/upload').then((getData)=>{
-      setupfiles(getData.data)
-    })
-  })
-
-
   const passSubdelete = ((ID)=>{
-    axios.delete(`http://localhost:8000/submark/sub/${ID}`)
+    axios.delete(`http://localhost:8000/submark/sub/${ID}`).then(alert('Successfully Deleted!'))
     
   })
   const passMarksdelete = ((MID)=>{
-    axios.delete(`http://localhost:8000/submark/mark/${MID}`)
+    axios.delete(`http://localhost:8000/submark/mark/${MID}`).then(alert('Successfully Deleted!'))
     
   })
   

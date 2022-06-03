@@ -18,7 +18,7 @@ export const Panelmform = () => {
   
 
   const assignpanel=()=>{
-    axios.patch(`http://localhost:8000/users/student/${GID}/${ID}`)
+    axios.patch(`http://localhost:8000/users/student/${GID}/${ID}`).then(alert('Successfully added!'))
   }
 
 
