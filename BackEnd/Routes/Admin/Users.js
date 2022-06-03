@@ -2,6 +2,7 @@ const router = require("express").Router();
 const studentg = require('../../Models/Student/studentReg')
 const student = require('../../Models/Admin/Student')
 const staff = require('../../Models/Admin/registration')
+const supervisor = require('../../Models/Supervisor/supervisor')
 //student
 router.route('/studentdetes').post((req,res)=>{
     const data = new student({
@@ -50,10 +51,26 @@ router.route('/studentdetes/:id').delete((req,res)=>{
 //staff
 //supervisor
 router.route("/supervisor").get((req, res) => {
-    staff.find({staff_type:'Supervisor'}).then(data=>{
+    supervisor.find().then(data=>{
         res.json(data)
     })
 })
+router.route('/supervisor/:id').delete((req,res)=>{
+    let id = req.params.id
+    supervisor.findByIdAndDelete(id)
+    .then(
+        res.send('Successfully deleted') 
+    )
+})
+router.route('/supervisor/:id').put((req,res)=>{
+    let id =req.params.id
+    supervisor.findByIdAndUpdate(id,req.body)
+    .then(data=>{
+        res.send(data)
+    })
+    console.log(req.body)
+})
+
 //cosupervisor
 router.route("/cosupervisor").get((req, res) => {
     staff.find({staff_type:'Co-Supervisor'}).then(data=>{
