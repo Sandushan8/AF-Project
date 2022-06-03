@@ -83,7 +83,7 @@ export const Uploads = () => {
             
           </tbody>
         </table>
-        <br/><br/>
+        <br/>
         <label className='ttitle'>Marking schemes</label><br/>
         <table className='table'>
           <tr class='headt'>

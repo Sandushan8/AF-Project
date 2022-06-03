@@ -1,17 +1,25 @@
 const axios =require("axios")
 
+const student = axios.get('http://localhost:8000/users/studentdetes')
+const supervisor = axios.get('http://localhost:8000/users/supervisor')
+const cosupervisor = axios.get('http://localhost:8000/users/cosupervisor')
+const panelmember = axios.get('http://localhost:8000/users/panelmember')
 
- const arr = axios.get('http://localhost:8000/users/studentdetes')
-  
+test('fetch student data', ()=>{
+  expect(student).not.toBeNull()
+  })
 
-
-test('add',()=>{
-  expect(2+2).toBe(4)
+test('fetch supervisor data',()=>{
+  expect(supervisor).not.toBeNull()
 })
 
-test('fetching', ()=>{
-  expect(arr).not.toBeNull()
-  })
+test('fetch co-supervisor data', ()=>{
+  expect(cosupervisor).not.toBeNull()
+})
+
+test('fetch panel member data', ()=>{
+  expect(panelmember).not.toBeNull()
+})
 
 
 
