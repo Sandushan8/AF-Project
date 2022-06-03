@@ -11,7 +11,7 @@ export const NewMark = () => {
   const [SpecialI,setSpecialI] = useState('')
   
   const submitM = () =>{
-    axios.post('http://localhost:8000/markingscheme', 
+    axios.post('http://localhost:8000/submark/mark', 
     {Title:Title, 
     Type:Type,
     Details:Details,

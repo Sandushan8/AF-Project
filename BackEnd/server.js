@@ -46,17 +46,18 @@ const supervisorRouter = require('./Routes/Supervisor/apiRoutes.js');
 app.use('/supervisor', supervisorRouter);
 
 //Ihill Routes
-//submission type
-app.post('/submission',iroutes.creates)
-app.get('/submission',iroutes.finds)
-app.put('/submission/:id',iroutes.updates)
-app.delete('/submission/:id',iroutes.deletes)
+//submission type & marking schemes
+app.use('/submark',require('./Routes/Admin/Adminfunctions'))
+// app.post('/submission',iroutes.creates)
+// app.get('/submission',iroutes.finds)
+// app.put('/submission/:id',iroutes.updates)
+// app.delete('/submission/:id',iroutes.deletes)
 //-----------------
 //marking schemes
-app.post('/markingscheme',iroutes.createm)
-app.get('/markingscheme',iroutes.findm)
-app.put('/markingscheme/:id',iroutes.updatem)
-app.delete('/markingscheme/:id',iroutes.deletem)
+// app.post('/markingscheme',iroutes.createm)
+// app.get('/markingscheme',iroutes.findm)
+// app.put('/markingscheme/:id',iroutes.updatem)
+// app.delete('/markingscheme/:id',iroutes.deletem)
 //-------------------
 //file uploads
 app.use('/files',require('./Routes/Admin/Upload'))
