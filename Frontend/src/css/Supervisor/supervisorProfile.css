@@ -111,7 +111,7 @@
   height: 6rem;
   padding: 1rem;
   font-family: 'Raleway', sans-serif;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .insertbtnContainer {
@@ -193,7 +193,7 @@
   border: none;
   color: #ffffff;
   border-radius: 10px;
-  margin-left: 160px;
+  margin-left: 130px;
 }
 
 .Leftwrapper {
@@ -215,8 +215,9 @@
   color: #08091a;
   letter-spacing: normal;
   justify-content: center;
+  text-align: center;
   font-weight: 500;
-  margin-left: 45px;
+  margin-left: 25px;
 }
 
 .contact{

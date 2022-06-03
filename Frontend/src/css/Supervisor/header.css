@@ -36,10 +36,11 @@ a {
    display: flex; 
    justify-content: space-between;
    align-items: center;
-   padding: 30px 10%;
+   padding: 35px 10%;
 }
 
 .nav_links{
+   margin-top: 10px;
    list-style: none;
    font-weight: 300;
 }

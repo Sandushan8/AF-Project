@@ -87,14 +87,14 @@ function MyAccount() {
                         </div>
 
                         <div className="Rightwrapper">
-                            <h2 className="sliit-ID">{eid}</h2>
-                            <h3 className="position">{position}</h3>
-                            <h3 className="faculty">{faculty}</h3>
+                            <h3 className="sliit-ID">{eid}</h3>
+                            <h4 className="position">{position}</h4>
+                            <h4 className="faculty">{faculty}</h4>
 
-                            <h3 className="heading1">Research Area</h3>
+                            <h5 className="heading1">Research Area</h5>
                             <p className="data1">{area}</p>
 
-                            <h3 className="heading2">About me</h3>
+                            <h5 className="heading2">About me</h5>
                             <p className="data1">{about}</p>
                         </div>
 
