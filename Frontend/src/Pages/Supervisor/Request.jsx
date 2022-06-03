@@ -49,7 +49,7 @@ function Request() {
 
             <Header />
             <div className='container'>
-                <h2 className='TableName'>Requets</h2>
+                <h2 className='TableName'>Student - Requets</h2>
 
                 <table className='Request-table'>
                     <thead className="table-Head">
@@ -87,7 +87,7 @@ function Request() {
                                         <td className='data'>{request.Topic}</td>
                                         <td className='data-name'>{request.TopicDiscription}</td>
                                         <td className='data-name'>{request.status}</td>
-                                        <td>
+                                        <td className="action">
                                             <button className='accept' onClick={(e) => updateRequest(request._id,"Accepted")}>ACCEPT</button>
                                             <button className='reject'onClick={(e) => updateRequest(request._id,"Rejected")}>REJECT</button>
                                         </td>

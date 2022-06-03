@@ -46,6 +46,7 @@ import Login from './Pages/Supervisor/Login'
 import MyAccount from './Pages/Supervisor/MyAccount'
 import SupervisorProfile from './Pages/Supervisor/SupervisorProfile'
 import Request from './Pages/Supervisor/Request'
+import ProjectEvaluate from './Pages/Supervisor/ProjectEvaluate'
 
 const App = () => {
     return (
@@ -100,6 +101,7 @@ const App = () => {
                 <Route path="/myAccount" exact component={MyAccount} />
                 <Route path="/supervisorProfile" exact component={SupervisorProfile} />
                 <Route path="/request" exact component={Request} />
+                <Route path="/topicEvaluate" exact component={ProjectEvaluate} />
 
 
 
