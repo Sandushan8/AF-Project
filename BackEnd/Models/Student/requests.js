@@ -27,6 +27,14 @@ const requestSchema = new Schema({
         type:String,
         require:true
     },
+    email:{
+        type:String,
+        require:true
+    },
+    status:{
+        type:String,
+        require:true
+    },
        
     
 })

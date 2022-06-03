@@ -40,6 +40,17 @@ import { Panelmform } from './Pages/Admin/Panelmform'
 
 //student routes end
 
+
+//Supervisor routes
+
+//import Header from './Components/Supervisor/Header'
+import SupervisorRegistration from './Pages/Supervisor/Registration'
+import Login from './Pages/Supervisor/Login'
+import MyAccount from './Pages/Supervisor/MyAccount'
+import SupervisorProfile from './Pages/Supervisor/SupervisorProfile'
+import Request from './Pages/Supervisor/Request'
+import ProjectEvaluate from './Pages/Supervisor/ProjectEvaluate'
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -85,6 +96,22 @@ const App = () => {
                 <Route path="/myRequest" exact component={MyRequest} />
 
                 {/* Student routes end- */}
+
+
+                {/* Supervisor routes start here */}
+
+                <Route path="/register" exact component={SupervisorRegistration} />
+                <Route path="/login" exact component={Login} />
+                <Route path="/myAccount" exact component={MyAccount} />
+                <Route path="/supervisorProfile" exact component={SupervisorProfile} />
+                <Route path="/request" exact component={Request} />
+                <Route path="/topicEvaluate" exact component={ProjectEvaluate} />
+
+                {/* Supervisor routes end here */}
+
+
+
+
 
 
             </Switch>
