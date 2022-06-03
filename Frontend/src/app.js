@@ -41,6 +41,8 @@ import { Panelmform } from './Pages/Admin/Panelmform'
 
 //Supervisor routes
 import Header from './Components/Supervisor/Header'
+import SupervisorRegistration from './Pages/Supervisor/Registration'
+import Login from './Pages/Supervisor/Login'
 
 const App = () => {
     return (
@@ -90,6 +92,8 @@ const App = () => {
 
                 {/* Supervisor routes */}
                 <Route path="/header" exact component={Header} />
+                <Route path="/register" exact component={SupervisorRegistration} />
+                <Route path="/login" exact component={Login} />
 
 
 
