@@ -39,6 +39,9 @@ import { Panelmform } from './Pages/Admin/Panelmform'
 
 //student routes end
 
+//Supervisor routes
+import Header from './Components/Supervisor/Header'
+
 const App = () => {
     return (
         <BrowserRouter>
@@ -84,6 +87,13 @@ const App = () => {
                 <Route path="/myRequest" exact component={MyRequest} />
 
                 {/* Student routes end- */}
+
+                {/* Supervisor routes */}
+                <Route path="/header" exact component={Header} />
+
+
+
+
 
 
             </Switch>
