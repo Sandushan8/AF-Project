@@ -10,13 +10,13 @@ export const Uploads = () => {
   
 
   useEffect(()=>{
-    axios.get('http://localhost:8000/submission').then((getData)=>{
+    axios.get('http://localhost:8000/submark/sub').then((getData)=>{
       setData(getData.data)
     })
   })
 
   useEffect(()=>{
-    axios.get('http://localhost:8000/markingscheme').then((getData)=>{
+    axios.get('http://localhost:8000/submark/mark').then((getData)=>{
       setMData(getData.data)
     })
   })
@@ -29,11 +29,11 @@ export const Uploads = () => {
 
 
   const passSubdelete = ((ID)=>{
-    axios.delete(`http://localhost:8000/submission/${ID}`)
+    axios.delete(`http://localhost:8000/submark/sub/${ID}`)
     
   })
   const passMarksdelete = ((MID)=>{
-    axios.delete(`http://localhost:8000/markingscheme/${MID}`)
+    axios.delete(`http://localhost:8000/submark/mark/${MID}`)
     
   })
   

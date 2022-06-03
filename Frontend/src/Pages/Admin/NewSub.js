@@ -11,7 +11,7 @@ export const NewSub = () => {
   const [Marks,setMarks] = useState('')
   
   const submitA = () =>{
-    axios.post('http://localhost:8000/submission', 
+    axios.post('http://localhost:8000/submark/sub', 
     {ID:ID, 
     Type:Type,
     Details:Details,

@@ -29,7 +29,7 @@ export const UpdateMark = () => {
   },[])
 
   const submitM = () =>{
-    axios.put(`http://localhost:8000/markingscheme/${id}`, 
+    axios.put(`http://localhost:8000/submark/mark/${id}`, 
     {Title:Title, 
     Type:Type,
     Details:Details,
