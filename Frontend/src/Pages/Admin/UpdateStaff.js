@@ -33,11 +33,11 @@ console.log(id)
         
         <label> Co-Supervisor </label>
         <input type='radio' name='stype' value='Co-Supervisor'  onChange={(e)=>{
-          setType('Co-Supervisor')
+          setType('co-supervisor')
         }}/>
         <label> Panel Member </label>
         <input type='radio' name='stype' value='Panel-Member'  onChange={(e)=>{
-          setType('Panel Member')
+          setType('panel-member')
         }}/>
         
         
