@@ -11,9 +11,11 @@ function RequestForm(props) {
     const [topic,setTopic]=useState();
     const [topicDis,setTopicDis]=useState();
     const position=props.ReqPosition;
+    const email=props.Email
 
     const data = {
         name,
+        email,
         position,
         id,
         topic,

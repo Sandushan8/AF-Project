@@ -22,11 +22,11 @@ function Registration() {
     const [password, setPassword] = useState();
     const [loader, setLoader] = useState()
     const [alerts, setAlerts] = useState()
-
-
+    const sender="supervisor"
+    const message="Welcome"
 
     const form = useRef();
-
+    
     const data = {
         LeaderRegNo,
         LeaderName,
@@ -34,6 +34,10 @@ function Registration() {
         LeaderContact,
         faculty,
         password
+    }
+    const messages = {
+        sender,
+        message
     }
 
     const registerHandler = () => {
@@ -46,7 +50,6 @@ function Registration() {
                 alert('Opss! Error in id');
             })
     }
-
     const register = (a) => {
 
         setTimeout(() => {
@@ -65,6 +68,14 @@ function Registration() {
                         .then(() => {
                             setLoader(false)
                             setAlerts(true)
+
+                            axios.post(`http://localhost:8000/details/messenger/start/${id}`)
+                            .then(() => {
+                                alert("done!!")
+                            })
+                            .catch(() => {
+                                alert('Message could not send!');
+                            });
                         })
                         .catch(() => {
                             alert('Opss! Error in reg');
@@ -76,8 +87,6 @@ function Registration() {
             }, (error) => {
                 alert(error.text);
             });
-
-
     }
 
     return (
@@ -85,7 +94,7 @@ function Registration() {
             <div>
                 <LogOutNavBar />
             </div>
-            <center> {alerts? <Stack sx={{ width: '95%' }} spacing={2}><Alert severity="success" onClose={() => {setAlerts(false)}}>Successfully Registered!</Alert></Stack> : null}</center>
+            <center> {alerts ? <Stack sx={{ width: '95%' }} spacing={2}><Alert severity="success" onClose={() => { setAlerts(false) }}>Successfully Registered!</Alert></Stack> : null}</center>
             <div className="RegistrationWrapper">
                 <div className="inputFieldArea">
                     <input type="text" className="regInputFields" placeholder="Student Reg No(Leader)..." onChange={(event) => { setLeaderRegNo(event.target.value) }} /><br />

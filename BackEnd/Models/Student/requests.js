@@ -7,6 +7,10 @@ const requestSchema = new Schema({
         type:String,
         require:true
     },
+    email:{
+        type:String,
+        require:true
+    },
     position:{
         type:String,
         require:true
@@ -24,6 +28,10 @@ const requestSchema = new Schema({
         require:true
     },
     submitdate:{
+        type:String,
+        require:true
+    },
+    status:{
         type:String,
         require:true
     },
