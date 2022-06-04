@@ -82,7 +82,7 @@ const App = () => {
 
                 {/* Student routes */}
 
-                <Route path="/" exact component={LogOutHome} />
+                <Route path="/studentmain" exact component={LogOutHome} />
                 <Route path="/signin" exact component={LoginPage} />
                 <Route path="/signup" exact component={Registration} />
                 <Route path="/home" exact component={HomePage} />
