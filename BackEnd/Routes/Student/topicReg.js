@@ -3,7 +3,6 @@ const File = require("../../Models/Student/topicRequest")
 const ProfilePic = require("../../Models/Student/studentReg")
 const clodinary = require('../../middleware/cloudinary')
 
-
 router.route("/request/save").post((req, res) => {
     const { ID } = req.body
     const { Faculty } = req.body
@@ -20,7 +19,7 @@ router.route("/request/save").post((req, res) => {
                 saveData(ID, Faculty, Topic, Discription, paths, links)
             }
         }
-    );
+);
     function saveData(Id, faculty, topic, discription, path, url) {
         const files = new File({ ID: Id, Faculty: faculty, Topic: topic, Discription: discription, avatar: path, url: url })
         files.save()

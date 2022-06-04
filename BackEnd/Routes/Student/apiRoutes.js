@@ -1,9 +1,10 @@
 const router = require("express").Router();
-const StudentChat = require("../../Models/Student/Chat") 
+const StudentChat = require("../../Models/Student/Chat")
 // const LeaderReg = require("../Models/Student/leaderReg")
 const StudentReg = require("../../Models/Student/studentReg")
 const StudentRequest = require("../../Models/Student/requests")
 const File = require("../../Models/Student/topicRequest")
+const Staff = require('../../Models/Supervisor/supervisor')
 
 //-------------------  Thivanka -  Student API Start -------------------------------------------------------------------------------------------------------
 
@@ -11,6 +12,21 @@ const File = require("../../Models/Student/topicRequest")
 router.route("/messenger").post((req, res) => {
     const { groupID, messages } = req.body
     const chat = new StudentChat({ groupID: groupID, messages: messages })
+    chat.save((err, data) => {
+        if (err) {
+            return res.status(400).json({
+                error: err
+            })
+        }
+        return res.status(200).json({
+            data: data
+        })
+    })
+})
+
+router.route("/messenger/start/:id").post((req, res) => {
+    const id=req.params.id
+    const chat = new StudentChat({ groupID: id})
     chat.save((err, data) => {
         if (err) {
             return res.status(400).json({
@@ -83,8 +99,11 @@ router.route("/reg/:grpId/:id").post((req, res) => {
         }
         return res.status(200).json({
             data: data
+            
         })
+         
     })
+    
 })
 //request a id 
 router.route("/request/id").get((req, res) => {
@@ -237,8 +256,10 @@ router.route("/group/:id").get((req, res) => {
 
 //student Request save  
 router.route("/request/save").post((req, res) => {
-    const { name, position, id, topic, topicDis, submitdate, email, status } = req.body
-    const register = new StudentRequest({ Name: name, position: position, GrpID: id, Topic: topic, TopicDiscription: topicDis, submitdate: submitdate, email: email, status: status })
+
+    const { name, email, position, id, topic, topicDis, submitdate } = req.body
+    const register = new StudentRequest({ Name: name, email: email, position: position, GrpID: id, Topic: topic, TopicDiscription: topicDis, submitdate: submitdate, status: "pending" })
+
     register.save((err, data) => {
         if (err) {
             return res.status(400).json({
@@ -285,7 +306,7 @@ router.route("/request/save").post((req, res) => {
 
     console.log("ID")
 
-    const files = new File({ ID: ID,Faculty:Faculty,Topic:Topic,Discription:Discription,avatar: paths })
+    const files = new File({ ID: ID, Faculty: Faculty, Topic: Topic, Discription: Discription, avatar: paths })
     files.save()
         .then((data) => {
             res.json(data)
@@ -324,6 +345,19 @@ router.route("/file/get").get((req, res) => {
 // })
 
 //-------------------  Thivanka - Student API End -------------------------------------------------------------------------------------------------------
+
+
+router.route("/get/:position").get((req, res) => {
+    const position = req.params.position
+    Staff.find({ position: { $eq: position } })
+        .then((data) => {
+            res.json(data)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
 
 
 

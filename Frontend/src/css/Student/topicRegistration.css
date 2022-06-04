@@ -21,7 +21,7 @@
 }
 
 .inputArea {
-    width: 440px;
+    width: 452px;
     height: 25px;
     border: 2px solid white;
     margin-top: 15px;
@@ -37,7 +37,7 @@
 }
 
 .facSelect {
-    width: 455px;
+    width: 454px;
     height: 30px;
     border: 2px solid white;
     margin-top: 15px;
@@ -64,8 +64,8 @@
 }
 
 .fileSelect {
-    width: 440px;
-    height: 25px;
+    width: 452px;
+    height: 27px;
     border: 2px solid white;
     margin-top: 15px;
     border-radius: 5px;

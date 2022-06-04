@@ -58,11 +58,12 @@ const App = () => {
                 <Route exact path='/' component={Intro}/>
                 //Admin routes
                 //main
+
                 <Route exact path='/AdminHome' component={Main}/>
                 <Route exact path='/AdminUser' component={Users}/>
                 <Route exact path='/AdminStudentg' component={AssignP}/>
                 <Route exact path='/AdminUploads' component={Uploads}/>
-                //sub
+           
                 <Route exact path='/CoSupervisor' component={CoSupervisor}/>
                 <Route exact path='/Supervisor' component={Supervisor}/>
                 <Route exact path='/PanelMember' component={PanelMember}/>

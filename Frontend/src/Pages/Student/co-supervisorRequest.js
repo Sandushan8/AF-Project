@@ -1,15 +1,24 @@
-import React,{useState} from "react";
+import React, { useState, useEffect } from "react";
 import "../../css/Student/supervisorRequest.css";
 import Footter from "../../Components/Student/footter";
 import NavBar from "../../Components/Student/navBar";
 import SupervisorDetail from "../../Components/Student/supervisorDetail";
+import axios from "axios";
 
 function CoSupervisorRequest() {
-    const [name,setName]=useState("Mr Frank N. Stein")
-    const id=(sessionStorage.getItem('mySessionData'));
-    const position="Co-supervisor"
-   
-    
+    const id = (sessionStorage.getItem('mySessionData'));
+    const position = "Co-Supervisors"
+    const [details, setDetails] = useState([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:8000/details/get/${position}`)
+            .then(res => {
+                setDetails(res.data)
+            })
+            .catch(err => {
+                alert(err)
+            })
+    },[])
     return (
         <div className="student_body">
             <NavBar />
@@ -20,10 +29,11 @@ function CoSupervisorRequest() {
                     <input type="search" className="re-areaSearch" placeholder="Search Supervisor's Research Area..." />
                 </div>
                 <div className="supervisorsDetails clearFix" >
-                    <SupervisorDetail Name={name} ID={id} Reqposition={position}/>
-                    <SupervisorDetail Name={name} ID={id} Reqposition={position}/>
-                    <SupervisorDetail Name={name} ID={id} Reqposition={position}/>
-                    <SupervisorDetail Name={name} ID={id} Reqposition={position}/>
+                    {details.map((detail) => (
+                        <div>
+                            <SupervisorDetail Name={detail.s_name} ID={id} Reqposition={position} Email={detail.email} About={detail.about} Area={detail.area} />
+                        </div>
+                    ))}
                 </div>
             </div>
             <Footter />

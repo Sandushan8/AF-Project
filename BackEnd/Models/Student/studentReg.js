@@ -84,7 +84,7 @@ const userSchema = new Schema({
         require:true
     }   
     
-    
+
 })
 const Data = mongoose.model("members_Registeration",userSchema);
 module.exports = Data;
