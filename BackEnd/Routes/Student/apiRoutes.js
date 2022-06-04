@@ -4,7 +4,7 @@ const StudentChat = require("../../Models/Student/Chat")
 const StudentReg = require("../../Models/Student/studentReg")
 const StudentRequest = require("../../Models/Student/requests")
 const File = require("../../Models/Student/topicRequest")
-const Staff = require('../../Models/Student/Stsff')
+const Staff = require('../../Models/Supervisor/supervisor')
 
 //-------------------  Thivanka -  Student API Start -------------------------------------------------------------------------------------------------------
 
