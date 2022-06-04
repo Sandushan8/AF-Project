@@ -25,6 +25,7 @@ function Requests(props) {
       <p className="Reqtopic">{props.topic}</p>
       <textarea rows="4" cols="80" className="topicDis" value={props.Dis} disabled />
       <p className="ReqDate">{props.date}</p>
+      <p className="status" id={props.status}>{props.status}</p>
       <button onClick={reqDeleteHandler} className="reqDeletebtn">Remove</button>
     </div>
   )

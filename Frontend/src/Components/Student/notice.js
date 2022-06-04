@@ -6,10 +6,10 @@ function Notice() {
         <div>
             <div className="wrapper">
                 <p>
-                    In writing, the words point and purpose are almost synonymous.<br /> Your point is your purpose, and how you decide to make your <br />point clear to your reader is also your purpose. Writers have a point and a purpose for every paragraph that they create.<br />eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
                 </p>
                 <p className="date">
-                    2022.04.12
+                    2022.05.28
                 </p>
             </div>
             <hr className="noticeSeparator"/>

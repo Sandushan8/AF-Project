@@ -23,16 +23,16 @@ function SupervisorDetail(props) {
         <div className="detailWrapper clearFix">
             <div className="supervisorAvatarWraper ">
                 <img src={Avatar} className="supervisorAvatar" width="60px" />
-                <textarea rows="1" cols="32" className="supervisorName" disabled>Mr Frank N. Stein</textarea>
-                <textarea rows="2" cols="32" className="supervisorName" disabled>frankNStein111@gmail.com </textarea>
+                <textarea rows="1" cols="32" className="supervisorName" disabled value={props.Name}/>
+                <textarea rows="2" cols="32" className="supervisorName" disabled value={props.Email}/> 
             </div>
             <div className="supervisorInfoWraper">
-                <h4 className="re-Heading">Biological and Biotechnological Sciences</h4>
-                <textarea rows="6" cols="65" className="re-Discription" disabled>An academic discipline or field of study is known as a branch of knowledge. It is taught as an accredited part of higher education. A scholar's discipline is commonly defined and recognized by a university faculty. That person will be accredited by learned societies to which they belong along with the academic journals in which they publish. However, no formal criteria exist for defining an academic discipline.</textarea>
+                <h4 className="re-Heading">{props.Area}</h4>
+                <textarea rows="6" cols="65" className="re-Discription" disabled value={props.About} />
                 <input type="button" className="requestBtn" value={ReqbtnEffect} onClick={reqFormHandler} />
             </div>
 
-            <RequestForm trigger={btnpopup} Name={props.Name} Id={props.ID} ReqPosition={props.Reqposition}/>
+            <RequestForm trigger={btnpopup} Name={props.Name} Id={props.ID} ReqPosition={props.Reqposition} Email={props.Email}/>
 
         </div>
     )

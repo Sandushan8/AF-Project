@@ -29,7 +29,7 @@ function MyRequest() {
                 </div>
                     {data.map((detail) => (
                         <div>
-                            <Requests name={detail.Name} topic={detail.Topic} Dis={detail.TopicDiscription} date={detail.submitdate} position={detail.position} />
+                            <Requests name={detail.Name} topic={detail.Topic} Dis={detail.TopicDiscription} date={detail.submitdate} position={detail.position} status={detail.status}/>
                         </div>
                     ))}
             </div>
