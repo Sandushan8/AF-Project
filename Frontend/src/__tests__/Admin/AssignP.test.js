@@ -8,11 +8,11 @@ test('fetch student groups',()=>{
     expect(stugrp).not.toBeNull()
 })
 
-test('fetch student groups',()=>{
+test('fetch submissions',()=>{
     expect(sub).not.toBeNull()
 })
 
-test('fetch student groups',()=>{
+test('fetch marking schemes',()=>{
     expect(mark).not.toBeNull()
 })
 
