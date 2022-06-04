@@ -41,7 +41,7 @@
 }
 .ReqDate{
     width:fit-content;
-    margin-top: 10px;
+  
     margin-left: 20px;
     font-family:Arial, Helvetica, sans-serif;
     color: white;
@@ -52,14 +52,35 @@
     height: 25px;
     float: right;
     outline: none;
-    border: none;
+    border: 1px solid white;
     border-radius: 5px;
     background-color: rgb(233, 61, 61);
     color: white;
     margin-right: 30px;
+    margin-top: -20px;
 }
 .reqDeletebtn:hover {
     border: 1px solid white;
     background-color: rgb(198, 14, 14);
 
+}
+.status{
+    width:fit-content;
+    margin-top:25px;
+    margin-left: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+
+}
+#pending{
+    padding-left: 15px;
+    background-color: rgb(214, 32, 32);
+    width: 90px;
+    border-radius: 10px;
+}
+#approve{
+    padding-left: 15px;
+    background-color: rgb(32, 214, 41);
+    width: 90px;
+    border-radius: 10px;
 }
