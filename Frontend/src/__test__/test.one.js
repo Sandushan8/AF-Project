@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import HomePage from '../Pages/Student/homePage'
+import { render, screen } from '@testing-library/react';
+import LogOutHome from '../Pages/Student/logOutHome'
 
-it('renders without crashing',()=>{
-    const div=document.createElement('div');
-    ReactDOM.render(<HomePage></HomePage>,div)
-})
+test('renders learn react link', () => {
+  render(<LogOutHome />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
