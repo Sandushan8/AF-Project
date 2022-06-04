@@ -18,12 +18,12 @@ export const UpdateSub = () => {
   const [Marks,setMarks] = useState('')
   
   const submitA = () =>{
-    axios.put(`http://localhost:8000/submission/${sid}`, 
+    axios.put(`http://localhost:8000/submark/sub/${sid}`, 
     {ID:ID, 
     Type:Type,
     Details:Details,
     Deadline:Deadline,
-    Marks:Marks})
+    Marks:Marks}).then(alert('Successfully Updated!'))
   }
 
   useEffect(()=>{

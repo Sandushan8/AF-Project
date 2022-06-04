@@ -7,39 +7,29 @@ import '../../css/Admin/tables'
 export const Uploads = () => {
   const [subData,setData] =useState([])
   const [marksData,setMData] = useState([])
-  const [upfiles,setupfiles] = useState([])
+  
 
   useEffect(()=>{
-    axios.get('http://localhost:8000/submission').then((getData)=>{
+    axios.get('http://localhost:8000/submark/sub').then((getData)=>{
       setData(getData.data)
     })
   })
 
   useEffect(()=>{
-    axios.get('http://localhost:8000/markingscheme').then((getData)=>{
+    axios.get('http://localhost:8000/submark/mark').then((getData)=>{
       setMData(getData.data)
     })
   })
 
-  useEffect(()=>{
-    axios.get('http://localhost:8000/upload').then((getData)=>{
-      setupfiles(getData.data)
-    })
-  })
-
-
   const passSubdelete = ((ID)=>{
-    axios.delete(`http://localhost:8000/submission/${ID}`)
+    axios.delete(`http://localhost:8000/submark/sub/${ID}`).then(alert('Successfully Deleted!'))
     
   })
   const passMarksdelete = ((MID)=>{
-    axios.delete(`http://localhost:8000/markingscheme/${MID}`)
+    axios.delete(`http://localhost:8000/submark/mark/${MID}`).then(alert('Successfully Deleted!'))
     
   })
-  const passFiledelete = ((FID)=>{
-    axios.delete(`http://localhost:8000/upload/${FID}`)
-    
-  })
+  
 
   const setSID =(data)=>{
     localStorage.setItem('id',data._id)
@@ -93,7 +83,7 @@ export const Uploads = () => {
             
           </tbody>
         </table>
-        <br/><br/>
+        <br/>
         <label className='ttitle'>Marking schemes</label><br/>
         <table className='table'>
           <tr class='headt'>
@@ -121,27 +111,6 @@ export const Uploads = () => {
             })} 
           </tbody>
         </table><br/>
-        
-        {/* <label className='ttitle'>Uploaded Documents</label>
-        <div className='uploadstab'>
-            <table className='tableup'>
-              <tr className='headt'>
-                <th>Name</th>
-                <th>Delete</th>
-              </tr>
-              <tbody className='tbody'>
-              {upfiles.map((data)=>{
-              return(
-                <tr>
-                  <td>{data.Name}</td>
-                  <td><button className='delete' onClick={()=>passFiledelete(data._id)}>Delete</button></td>
-                </tr>
-              )
-            })} 
-              </tbody>
-            </table>
-            </div> */}
-
         </div>
     </div>
   )

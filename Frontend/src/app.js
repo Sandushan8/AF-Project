@@ -12,13 +12,16 @@ import { NewMark } from './Pages/Admin/NewMark'
 import { NewSub } from './Pages/Admin/NewSub'
 import { PanelMember } from './Pages/Admin/PanelMember'
 import { Student } from './Pages/Admin/Student'
-import { Studentg } from './Pages/Admin/Studentg'
+//import { Studentg } from './Pages/Admin/Studentg'
 import { Supervisor } from './Pages/Admin/Supervisor'
 import { UpDoc } from './Pages/Admin/UpDoc'
 import { Uploads } from './Pages/Admin/Uploads'
 import { Users } from './Pages/Admin/Users'
 import { UpdateSub } from './Pages/Admin/UpdateSub'
 import { UpdateMark } from './Pages/Admin/UpdateMark'
+import { UpdateStaff } from './Pages/Admin/UpdateStaff'
+import { UpdateStudent } from './Pages/Admin/UpdateStudent'
+import { UpdateSupervisor } from './Pages/Admin/UpdateSupervisor'
 //student routes
 
 import LoginPage from './Pages/Student/loginPage';
@@ -33,8 +36,20 @@ import MemberReg from './Pages/Student/memberRegistration';
 // import Test from './test';
 import TopicRegister from './Pages/Student/topicRegistration';
 import MyRequest from './Pages/Student/myRequest';
+import { Panelmform } from './Pages/Admin/Panelmform'
 
 //student routes end
+
+
+//Supervisor routes
+
+//import Header from './Components/Supervisor/Header'
+import SupervisorRegistration from './Pages/Supervisor/Registration'
+import Login from './Pages/Supervisor/Login'
+import MyAccount from './Pages/Supervisor/MyAccount'
+import SupervisorProfile from './Pages/Supervisor/SupervisorProfile'
+import Request from './Pages/Supervisor/Request'
+import ProjectEvaluate from './Pages/Supervisor/ProjectEvaluate'
 
 const App = () => {
     return (
@@ -44,7 +59,7 @@ const App = () => {
 
                 <Route exact path='/AdminHome' component={Main}/>
                 <Route exact path='/AdminUser' component={Users}/>
-                <Route exact path='/AdminStudentg' component={Studentg}/>
+                <Route exact path='/AdminStudentg' component={AssignP}/>
                 <Route exact path='/AdminUploads' component={Uploads}/>
            
                 <Route exact path='/CoSupervisor' component={CoSupervisor}/>
@@ -56,14 +71,11 @@ const App = () => {
                 <Route exact path='/NewMark' component={NewMark}/>  
                 <Route exact path='/UpDoc' component={UpDoc}/>
                 <Route exact path='/UpdateSub' component={UpdateSub}/>      
-                <Route exact path='/UpdateMark' component={UpdateMark}/> 
-
-                {/* Admin routes */}
-                <Route exact path='/AdminHome' component={Main} />
-                <Route exact path='/AdminUser' component={Users} />
-                <Route exact path='/AdminStudentg' component={Studentg} />
-                <Route exact path='/AdminUploads' component={Uploads} />
-
+                <Route exact path='/UpdateMark' component={UpdateMark}/>
+                <Route exact path='/assignpm' component={Panelmform}/> 
+                <Route exact path='/UpdateStaff' component={UpdateStaff}/>
+                <Route exact path='/updatestudent' component={UpdateStudent}/>
+                <Route exact path='/updatesupervisor' component={UpdateSupervisor}/>
                 {/* Admin routes end */}
 
                 {/* <Route path="/supervisorChat" exact component={Test} /> */}
@@ -83,6 +95,22 @@ const App = () => {
                 <Route path="/myRequest" exact component={MyRequest} />
 
                 {/* Student routes end- */}
+
+
+                {/* Supervisor routes start here */}
+
+                <Route path="/register" exact component={SupervisorRegistration} />
+                <Route path="/login" exact component={Login} />
+                <Route path="/myAccount" exact component={MyAccount} />
+                <Route path="/supervisorProfile" exact component={SupervisorProfile} />
+                <Route path="/request" exact component={Request} />
+                <Route path="/topicEvaluate" exact component={ProjectEvaluate} />
+
+                {/* Supervisor routes end here */}
+
+
+
+
 
 
             </Switch>

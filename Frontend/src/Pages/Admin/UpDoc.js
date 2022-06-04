@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 export const UpDoc = () => {
-  const [fname,setfilename] = useState('')
+  //const [fname,setfilename] = useState('')
   const [file,setfile] = useState('')
 
   
@@ -12,7 +12,7 @@ export const UpDoc = () => {
   const senddoc=()=>{
     const formData = new FormData();
     formData.append('file',file)
-    axios.post(`http://localhost:8000/files/upload/${fname}`,formData,{headers:{'Content-Type':'multipart/form-data'}})
+    axios.post(`http://localhost:8000/files/upload`,formData,{headers:{'Content-Type':'multipart/form-data'}}).then(alert('Successfully added!'))
   }
   
   return (
@@ -22,11 +22,9 @@ export const UpDoc = () => {
       <div className='formbody'>
       <label className='ttitle'>Upload_documents</label>
       <div className='Form'> 
-        <br/>
-        <h2>Enter a File Name:</h2>
-        <input type='text' onChange={(e)=>{setfilename(e.target.value)}}/>
-        <br/><br/>
-        <input type='file' name='file' onChange={(e)=>{setfile(e.target.files[0])}}/>
+        <br/><br/><br/><br/><br/>
+        
+        <input type='file' className='cfile' name='file' onChange={(e)=>{setfile(e.target.files[0])}}/>
         <br/>
         <br/>
         <Link to='/AdminUploads'><input type='submit' value=' Add ' className='formsubmit' onClick={senddoc}/></Link> 

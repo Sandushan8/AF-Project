@@ -1,42 +1,60 @@
-import React from 'react'
-import '../../css/Admin/userdiv.css'
+import React, {useState,useEffect} from 'react'
 import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const Supervisor = () =>{
+  const [apiData,setData] =useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/users/supervisor').then((getData)=>{
+      setData(getData.data)
+    })
+  })
+  const setID =(id)=>{
+    localStorage.setItem('id',id)
+    console.log(id)
+  }
+  const passdelete =(id) =>{
+    axios.delete(`http://localhost:8000/users/supervisor/${id}`).then(alert('Successfully Deleted!'))
+    
+  }
     return(
       <div>
-        <NavBarUSubtopic/>
-        <div className='members'>
+      <NavBarUSubtopic/>
+        <div className='usercontainer'>
         <label className='ttitle'>Supervisor</label>
-            <table className='table'>
-          <tr>
+        <table className='table'>
+          <tr className='headt'>
             <th>ID</th>
-            <th>Department</th>
-            <th>Specialization</th>
-            <th>Research Field</th>
             <th>Name</th>
+            <th>Faculty</th>
+            <th>Position</th>
             <th>Email</th>
-            <th>Mobile Number</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Contact</th>
+            <th>Area</th>
+            <th>About</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
           </tr>
-          {/* <tbody class='tbody'>
+          <tbody class='tbody'>
             {apiData.map((data)=>{
               return(
                 <tr>
-                  <td>{data.ID}</td>
-                  <td>{data.Type}</td>
-                  <td>{data.Email}</td>
-                  <td>{data.SDetes}</td>
-                  <td>{data.PP}</td>
-                  <td>{data.Price}</td>
-                  <td><Link to='/update'><button class='update' onClick={()=>setID(data.ID)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passdelete(data.ID)}>Delete</button></td>
-                </tr>
+                  <td>{data.s_id}</td>
+                  <td>{data.s_name}</td>
+                  <td>{data.faculty}</td>
+                  <td>{data.position}</td>
+                  <td>{data.email}</td>
+                  <td>{data.contact}</td>
+                  <td>{data.area}</td>
+                  <td>{data.about}</td>
+                  <td><Link to='/updatesupervisor'><button className='update' onClick={()=>setID(data._id)}>Update</button></Link></td>
+                  <td><button className='delete'onClick={()=>passdelete(data._id)}>Delete</button></td>
+                  </tr>
               )
-            })}
-            
-          </tbody> */}
+            })} 
+          </tbody>
         </table>
         </div>
         </div>

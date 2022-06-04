@@ -11,13 +11,13 @@ export const NewMark = () => {
   const [SpecialI,setSpecialI] = useState('')
   
   const submitM = () =>{
-    axios.post('http://localhost:8000/markingscheme', 
+    axios.post('http://localhost:8000/submark/mark', 
     {Title:Title, 
     Type:Type,
     Details:Details,
     MarksA:MarksA,
     SpecialI:SpecialI
-  })
+  }).then(alert('Successfully added!'))
     
   }
   return (
@@ -48,7 +48,7 @@ export const NewMark = () => {
         }}/><br/><br/>
         <div className='formbuttons'>
         <Link to ='/AdminUploads'><input type='submit' value=' Add ' className='formsubmit' onClick={submitM}/></Link>
-          <Link to ='/AdminUploads'><input type='submit' value=' Cancel ' className='formcancel'/></Link>
+          <Link to ='/AdminUploads'><input type='cancel' value=' Cancel ' className='formcancel'/></Link>
         </div>
         </div>
         </div>

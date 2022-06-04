@@ -78,7 +78,13 @@ const userSchema = new Schema({
     password:{
         type:String,
         require:true
-    },   
+    },
+    PanelM:{
+        type:String,
+        require:true
+    }   
+    
+
 })
 const Data = mongoose.model("members_Registeration",userSchema);
 module.exports = Data;

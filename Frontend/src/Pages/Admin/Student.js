@@ -1,41 +1,55 @@
-import React from 'react'
+import React, {useEffect,useState} from 'react'
 import { NavBarUSubtopic } from '../../Components/Admin/NavBarUSubtopic'
-import '../../css/Admin/userdiv.css'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const Student = () =>{
+  const [apiData,setData] =useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8000/users/studentdetes').then((getData)=>{
+      setData(getData.data)
+    })
+  })
+
+  const passdelete = (ID) =>{
+    axios.delete(`http://localhost:8000/users/studentdetes/${ID}`).then(alert('Successfully deleted!'))
+  }
+
+  const setupID =(id) =>{
+    localStorage.setItem('id',id)
+  }
+
     return(
       <div>
       <NavBarUSubtopic/>
-        <div className='members'>
+        <div className='usercontainer'>
         <label className='ttitle'>Student</label>
             <table className='table'>
-          <tr>
+          <tr className='headt'>
             <th>ID</th>
-            <th>Type</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Special Details</th>
-            <th>Pre-Payment</th>
-            <th>Price</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Contact</th>
+            <th>Faculty</th>
+            <th className='upd'>Update</th>
+            <th className='upd'>Delete</th>
           </tr>
-          {/* <tbody class='tbody'>
+          <tbody class='tbody'>
             {apiData.map((data)=>{
               return(
                 <tr>
                   <td>{data.ID}</td>
-                  <td>{data.Type}</td>
+                  <td>{data.Name}</td>
                   <td>{data.Email}</td>
-                  <td>{data.SDetes}</td>
-                  <td>{data.PP}</td>
-                  <td>{data.Price}</td>
-                  <td><Link to='/update'><button class='update' onClick={()=>setID(data.ID)}>Update</button></Link></td>
-                  <td><button class='delete' onClick={()=>passdelete(data.ID)}>Delete</button></td>
+                  <td>{data.Contact}</td>
+                  <td>{data.Faculty}</td>
+                  <td><Link to='/updatestudent'><button class='update' onClick={()=>setupID(data._id)}>Update</button></Link></td>
+                  <td><button class='delete' onClick={()=>passdelete(data._id)}>Delete</button></td>
                 </tr>
               )
             })}
-            
-          </tbody> */}
+          </tbody>
         </table>
         </div>
         </div>
