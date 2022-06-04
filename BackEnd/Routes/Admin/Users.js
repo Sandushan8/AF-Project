@@ -73,13 +73,13 @@ router.route('/supervisor/:id').put((req,res)=>{
 
 //cosupervisor
 router.route("/cosupervisor").get((req, res) => {
-    staff.find({staff_type:'Co-Supervisor'}).then(data=>{
+    staff.find({staff_type:'co-supervisor'}).then(data=>{
         res.json(data)
     })
 })
 //panelmember
 router.route("/panelmember").get((req, res) => {
-    staff.find({staff_type:'Panel Member'}).then(data=>{
+    staff.find({staff_type:'panel-member'}).then(data=>{
         res.json(data)
     })
 })
