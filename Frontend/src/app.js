@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import { AssignP } from './Pages/Admin/AssignP'
 import { CoSupervisor } from './Pages/Admin/CoSupervisor' 
-
+import { Intro } from './Intro'
 
 //Admin routes
 import { Main } from './Pages/Admin/Main'
@@ -55,7 +55,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Switch>
-
+                <Route exact path='/' component={Intro}/>
                 //Admin routes
                 //main
                 <Route exact path='/AdminHome' component={Main}/>
